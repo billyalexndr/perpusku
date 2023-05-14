@@ -51,7 +51,7 @@
                         </div>
                     </form>
                     <p class="text-center">Have an account? <a href="login.php">Login</a></p>
-                    <p class="text-center"><a href="../">Kembali ke Home</a></p>
+                    <p class="text-center"><a href="../home">Home Page</a></p>
                 </div>
             </div>
         </div>

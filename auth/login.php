@@ -53,7 +53,7 @@
                 <p class="login-more-text">Don’t have an account?</p>
                 <a href="./index.php" class="login-more-link">Sign up</a>
                 <br>
-                <a href="../" class="login-more-link">Kembali ke Home</a>
+                <a href="../home/" class="login-more-link">Home Page</a>
             </div>
         </form>
     </div>
