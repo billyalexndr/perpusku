@@ -1,7 +1,15 @@
 <?php
-    session_start();
-    
-
+    require "function.php";
+    if ( isset($_POST["submit"]) ) {
+        
+        if (register($_POST) > 0 ) {
+            echo "<script> alert('user baru telah ditambah')
+                window.location='./login.php';
+            </script>";
+        } else {
+            echo mysqli_error($conn);
+        }
+    }
 
 ?>
 
@@ -11,45 +19,39 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/style/login.css">
-    <title>Halaman Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/style/register.css">
+    <title>REGISTER</title>
 </head>
 <body>
     <div class="limiter">
-        <div class="container-login">
-            <div class="wrap-login">
-                <form class="login-form" method="post" action="">
-                    <h1 class="login-title">
-                        LOGIN
-                    </h1>
-                    <div class="input-wrap">
-                        <input class="input-field" type="text" name="username" placeholder="Username" required>
-                    </div>
-                    <div class="input-wrap">
-                        <input class="input-field" type="password" name="password" placeholder="Password" required>
-                    </div>
-                    <div class="btn-wrap">
-                        <button class="login-btn" name="submit">
-                            Login
-                        </button>
-                    </div>
-                    <ul class="login-more">
-                        <li>
-                            <span class="txt1">
-                                Don’t have an account?
-                            </span>
-                            <a href="./index.php" class="txt2">
-                                Sign up
-                            </a>
-                            <br>
-                            <a href="../" class="txt2">
-                                Kembali ke Home
-                            </a>
-                        </li>
-                    </ul>
-                </form>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <form class="form-horizontal" role="form" action="" method="POST">
+                        <div class="form-group">
+                            <label for="nama_user" class="control-label">Nama</label>
+                            <input type="text" class="form-control" name="nama_user" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="control-label">Username</label>
+                            <input type="text" class="form-control" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label">Password</label>
+                            <input type="password" class="form-control" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password2" class="control-label">Konfirmasi Password</label>
+                            <input type="password" class="form-control" name="password2" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success" name="submit">REGISTER</button>
+                        </div>
+                    </form>
+                    <p class="text-center">Have an account? <a href="login.php">Login</a></p>
+                    <p class="text-center"><a href="../">Kembali ke Home</a></p>
+                </div>
             </div>
         </div>
     </div>

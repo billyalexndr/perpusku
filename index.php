@@ -1,5 +1,3 @@
 <?php
-    
-    header("location : auth");
-
+    header("location: auth");
 ?>

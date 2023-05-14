@@ -1,0 +1,46 @@
+/* style untuk form */
+form {
+	margin-top: 50px;
+	padding: 20px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	box-shadow: 0px 0px 5px #ccc;
+}
+
+form label {
+	font-weight: normal;
+	font-size: 14px;
+}
+
+form input[type="text"], form input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	font-size: 16px;
+}
+
+form button[type="submit"] {
+	width: 100%;
+	padding: 10px;
+	background-color: #28a745;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	font-size: 16px;
+}
+
+/* style untuk link */
+p.text-center {
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+p.text-center a {
+	color: #007bff;
+	text-decoration: none;
+}
+
+p.text-center a:hover {
+	text-decoration: underline;
+}
