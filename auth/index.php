@@ -7,7 +7,7 @@
                 window.location='./login.php';
             </script>";
         } else {
-            echo mysqli_error($conn);
+            echo mysqli_error($kon);
         }
     }
 
@@ -28,6 +28,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
+                    <h1>REGISTER</h1>
                     <form class="form-horizontal" role="form" action="" method="POST">
                         <div class="form-group">
                             <label for="nama_user" class="control-label">Nama</label>

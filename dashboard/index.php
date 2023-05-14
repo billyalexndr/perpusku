@@ -1,5 +1,0 @@
-<?php
-    
-    echo 'Ini Dashboard';
-
-?>

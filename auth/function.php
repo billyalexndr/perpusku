@@ -17,7 +17,7 @@
         $username = htmlspecialchars(strtolower(stripslashes(trim($data["username"]))));
         $nama_user = htmlspecialchars($data["nama_user"]);
         $password =htmlspecialchars(mysqli_real_escape_string($kon, $data["password"]));
-        $password2 = htmlspecialchars(mysqli_real_escape_string($kon,$data["password2"]));
+        $password2 = htmlspecialchars(mysqli_real_escape_string($kon, $data["password2"]));
         date_default_timezone_set('Asia/Jakarta');
         $tgl_daftar = date('Y-m-d');
         $level = "user";
@@ -36,7 +36,6 @@
             </script>";
             return false;
         }
-        
 
         //enskripsi password
         //$password = hash("sha1", $password);
