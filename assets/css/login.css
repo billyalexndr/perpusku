@@ -1,0 +1,104 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f8f8f8;
+	margin: 0;
+	padding: 0;
+}
+
+.limiter {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.container-login100 {
+	width: 400px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	padding: 40px;
+}
+
+.login100-form {
+	width: 100%;
+}
+
+.login100-form-title {
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.wrap-input100 {
+	position: relative;
+	width: 100%;
+	margin-bottom: 35px;
+}
+
+.input100 {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+.input100:focus + .focus-input100::before {
+	width: 100%;
+}
+
+.focus-input100::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: #4CAF50;
+	transition: all 0.4s;
+}
+
+.container-login100-form-btn {
+	width: 100%;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.register100-form-btn {
+	display: inline-block;
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+	background-color: #4CAF50;
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: background-color 0.4s;
+}
+
+.register100-form-btn:hover {
+	background-color: #45a049;
+}
+
+.login-more {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.txt1 {
+	font-size: 14px;
+}
+
+.txt2 {
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: underline;
+	color: #4CAF50;
+	cursor: pointer;
+}
