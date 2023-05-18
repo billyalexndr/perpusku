@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/0aa1f9181b.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="../../assets/css/login.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
     <div class="menu-mobile">
@@ -52,7 +52,8 @@
                     <a href="logout.php">Log-Out</a>
                 </div>
             <?php else: ?>
-                    <a href="login_form.php?page=1" class="cta">Login</a>
+                    <a href="../login/login.php" class="cta">Login</a>
+                    <a href="../login/" class="cta">Sign Up</a>
             <?php endif; ?>
             </div>
         </div>

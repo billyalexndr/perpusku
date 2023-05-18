@@ -4,13 +4,13 @@
 	<title>Register</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../../style/css/login.css">
+	<link rel="stylesheet" href="../../assets/css/login.css">
 </head>
 <body>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
-				<form class="login100-form validate-form" action="" method="POST">
+				<form class="login100-form validate-form" action="./function.php" method="POST">
 					<span class="login100-form-title p-b-70">
 						REGISTER
 					</span>
@@ -39,11 +39,11 @@
 							<span class="txt1">
 								Have an account?
 							</span>
-							<a href="login.php" class="txt2">
+							<a href="./views/login/login.php" class="txt2">
 								Login
 							</a>
 							<br>
-							<a href="../" class="txt2">
+							<a href="./views/home/index.php" class="txt2">
 								Kembali ke Home
 							</a>
 						</li>

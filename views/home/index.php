@@ -1,4 +1,4 @@
-<!-- <?php include 'head.php' ?> -->
+<?php include 'head.php' ?>
 <header>
         <div class="grid">
             <p>Selamat datang di,</p>
@@ -22,7 +22,7 @@
             </form>
         </div>
         <div class="bg">
-            <img src="img/otf223487.jpg" alt="bg-header">
+            <img src="../../assets/images/bg-home.jpg" alt="bg-header">
         </div>
     </header>
     <?php if(isset($_POST['search'])): ?>
@@ -38,8 +38,7 @@
 					<div class="list">Penerbit</div>
 				</div>
 				<?php
-				include"koneksi.php";
-				$connect=mysqli_connect($host,$name,$pass,$db)or die("koneksi gagal");
+				require "../../koneksi.php";
 				$buku=$_POST['cari'];
 				$berdasarkan = $_POST['point'];
 				$no=1;
@@ -52,7 +51,7 @@
 				}else if ($berdasarkan == '') {
 				echo "data salah";
 				}
-				$banyak= mysqli_query($connect,$sqli);
+				$banyak= mysqli_query($conn,$sqli);
 				while($row=mysqli_fetch_array($banyak))
 				{
 				?>
@@ -102,19 +101,18 @@
 					<div class="list">Penerbit</div>
 				</div>
 				<?php
-				include "koneksi.php";
-				$connect=mysqli_connect($host,$name,$pass,$db)or die("koneksi gagal");
+				require "../../koneksi.php";
 				$no=1;
-				$sqli="select *from buku ORDER BY id_buku DESC";
-				$banyak=mysqli_query($connect,$sqli);
+				$sqli="select *from buku ORDER BY id_buku";
+				$banyak=mysqli_query($conn,$sqli);
 				while($row=mysqli_fetch_array($banyak)){
 				?>
 				<div class="row body">
 					<div class="list"><?php echo $no ;?></div>
-					<div class="list"><?php echo $row['judul'] ;?></div>
+					<div class="list"><?php echo $row['judul_buku'] ;?></div>
 					<div class="list"><?php echo $row['id_buku'] ;?></div>
-					<div class="list"><?php echo $row['pengarang'];?></div>
-					<div class="list"><?php echo $row['penerbit'];?></div>
+					<div class="list"><?php echo $row['penulis_buku'];?></div>
+					<div class="list"><?php echo $row['penerbit_buku'];?></div>
 				</div>
                 <?php $no=$no+1; if ($no == '4') { break; } }?>
             </div>
