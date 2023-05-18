@@ -1,4 +1,5 @@
 <?php include 'head.php' ?>
+
 <header>
         <div class="grid">
             <p>Selamat datang di,</p>
@@ -67,7 +68,7 @@
 		</div>
 	</section>
     <?php endif; ?>
-    <section id="fitur">
+    <!-- <section id="fitur">
         <div class="grid">
             <h1>Fitur Pada Website</h1>
             <div class="feature">
@@ -88,7 +89,46 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+    
+
+
+    <?php
+    // Koneksi ke database
+    require '../../koneksi.php';
+
+    // Periksa koneksi
+    if (mysqli_connect_errno()) {
+        echo "Koneksi database gagal: " . mysqli_connect_error();
+        exit();
+    }
+
+    // Query untuk mengambil data buku
+    $query = "SELECT * FROM buku";
+    $result = mysqli_query($conn, $query);
+
+    // Periksa apakah ada data buku
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+            <div class="card">
+            <img src="../../assets/images/cover-buku/<?= $row['cover_buku']; ?>" alt="Book Cover" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title"><?= $row['judul_buku']; ?></h3>
+                    <p class="card-author">by <?= $row['penulis_buku']; ?></p>
+                    <p class="card-publisher">Publisher: <?= $row['penerbit_buku']; ?></p>
+                    <p class="card-year">Publication Year: <?= $row['tanggal_terbit']; ?></p>
+                    <a href="#" class="btn-read">Read More</a>
+                </div>
+            </div>
+            <?php
+        }
+    } else {
+        echo "Tidak ada data buku.";
+    }
+    ?>
+
+
     <section class="book-list">
 		<div class="grid">
 			<h1>Buku Yang Terakhir Ditambahkan</h1>
@@ -103,7 +143,7 @@
 				<?php
 				require "../../koneksi.php";
 				$no=1;
-				$sqli="select *from buku ORDER BY id_buku";
+				$sqli="select *from buku ORDER BY id_buku DESC";
 				$banyak=mysqli_query($conn,$sqli);
 				while($row=mysqli_fetch_array($banyak)){
 				?>
