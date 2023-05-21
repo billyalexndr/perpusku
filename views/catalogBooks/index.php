@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../assets/css/books.css">
-  <title>Daftar Buku Dipinjam</title>
+  <title>My Book</title>
 </head>
 <body>
   <div class="book-list">
@@ -43,6 +43,33 @@
       }
     } else {
       echo "Tidak ada buku yang dipinjam.";
+    }
+
+    // Query untuk mengambil riwayat peminjaman
+    $riwayatQuery = "SELECT * FROM riwayat_peminjaman";
+    $riwayatResult = mysqli_query($conn, $riwayatQuery);
+
+    // Periksa apakah ada riwayat peminjaman
+    if (mysqli_num_rows($riwayatResult) > 0) {
+      echo "<h2>Riwayat Peminjaman</h2>";
+      while ($riwayatRow = mysqli_fetch_assoc($riwayatResult)) {
+        ?>
+        <div class="book-card">
+          <div class="book-image">
+            <img src="gambar_buku.jpg" alt="Cover Buku">
+          </div>
+          <div class="book-details">
+            <h3 class="book-title"><?php echo $riwayatRow['id_buku']; ?></h3>
+            <p class="book-info">ID Peminjaman: <?php echo $riwayatRow['id_peminjaman']; ?></p>
+            <p class="book-info">ID User: <?php echo $riwayatRow['id_user']; ?></p>
+            <p class="book-info">Tanggal Pinjam: <?php echo $riwayatRow['tanggal_pinjam']; ?></p>
+            <p class="book-info">Tanggal Kembali: <?php echo $riwayatRow['tanggal_kembali']; ?></p>
+          </div>
+        </div>
+        <?php
+      }
+    } else {
+      echo "Tidak ada riwayat peminjaman.";
     }
 
     // Tutup koneksi database

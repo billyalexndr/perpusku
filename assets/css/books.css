@@ -1,31 +1,27 @@
 .book-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .book-card {
-    width: 300px;
-    margin: 10px;
-    padding: 10px;
-    background-color: #f0f0f0;
+    background-color: #f1f1f1;
+    padding: 20px;
     border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .book-image img {
     width: 100%;
-    height: auto;
+    max-height: 200px;
     object-fit: cover;
     border-radius: 5px;
-}
-
-.book-details {
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .book-title {
+    margin-top: 0;
     font-size: 18px;
-    font-weight: bold;
 }
 
 .book-info {
