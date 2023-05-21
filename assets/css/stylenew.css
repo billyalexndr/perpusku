@@ -1,0 +1,162 @@
+/* styles.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: #f2f2f2;
+    padding: 40px 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.sub {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.search select,
+.search input[type="text"],
+.search input[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.search select {
+    margin-right: 10px;
+}
+
+.search input[type="text"] {
+    flex-grow: 1;
+}
+
+/* Book Card Styles */
+.card {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.card-author {
+    font-size: 14px;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.card-publisher,
+.card-year {
+    font-size: 14px;
+    margin: 0;
+}
+
+.btn-read {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.btn-read:hover {
+    background-color: #555;
+}
+
+/* Book List Styles */
+.book-list {
+    background-color: #f2f2f2;
+    padding: 40px 0;
+}
+
+.table {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.row.head {
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.row.body {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+/* Info Section Styles */
+.info {
+    background-color: #fff;
+    padding: 40px 0;
+}
+
+.info .list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
