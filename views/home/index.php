@@ -79,6 +79,51 @@
 		</div>
 	</section>
     <?php endif; ?>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Data Kategori</title>
+</head>
+<body>
+    <h1>Data Kategori</h1>
+    <ul>
+        <?php
+        require '../../koneksi.php';
+
+        // Periksa koneksi
+        if (!$conn) {
+            die("Koneksi gagal: " . mysqli_connect_error());
+        }
+
+        // Menjalankan query SQL untuk mengambil data kategori
+        $sql = "SELECT * FROM kategori";
+        $result = mysqli_query($conn, $sql);
+
+        // Memeriksa apakah query mengembalikan hasil
+        if (mysqli_num_rows($result) > 0) {
+            // Mengambil data kategori satu per satu
+            while ($row = mysqli_fetch_assoc($result)) {
+                $kategoriNama = $row["nama_kategori"];
+
+                // Menampilkan data kategori dalam daftar HTML
+                echo "<li>" . $kategoriNama . "</li>";
+            }
+        } else {
+            echo "<li>Tidak ada data kategori.</li>";
+        }
+
+        // Menutup koneksi ke database
+        mysqli_close($conn);
+        ?>
+    </ul>
+</body>
+</html>
+
     <!-- <section id="fitur">
         <div class="grid">
             <h1>Fitur Pada Website</h1>
