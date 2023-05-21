@@ -122,7 +122,7 @@
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             ?>
-            <div class="card">
+            <div class="card"  id="listBook">
             <img src="../../assets/images/cover-buku/<?= $row['cover_buku']; ?>" alt="Book Cover" class="card-image">
                 <div class="card-content">
                     <h3 class="card-title"><?= $row['judul_buku']; ?></h3>

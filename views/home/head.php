@@ -41,7 +41,8 @@
             <h1><a href="index.php?page=1">perpuss</a></h1>
             <div class="menu">
                 <a class="list" href="index.php">Home</a>
-                <a class="list" href="koleksi_buku.php">List Book</a>
+                <a class="list" href="#listBook">List Book</a>
+                <a class="list" href="myBook.php">My Book</a>
                 <a class="list" href="anggota.php">Member</a>
             </div>
             <div class="user">

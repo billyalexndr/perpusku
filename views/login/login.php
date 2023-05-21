@@ -10,7 +10,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
-				<form class="login100-form validate-form" method="post" action="">
+				<form class="login100-form validate-form" method="post" action="./proses_login.php">
 					<span class="login100-form-title p-b-70">
 						LOGIN
 					</span>
