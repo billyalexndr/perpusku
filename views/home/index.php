@@ -108,31 +108,26 @@
 
 
     <?php
-    // Koneksi ke database
     require '../../koneksi.php';
-
-    // Periksa koneksi
-    if (mysqli_connect_errno()) {
-        echo "Koneksi database gagal: " . mysqli_connect_error();
-        exit();
-    }
 
     // Query untuk mengambil data buku
     $query = "SELECT * FROM buku";
     $result = mysqli_query($conn, $query);
 
-    // Periksa apakah ada data buku
+    // ...
+
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             ?>
-            <div class="card"  id="listBook">
-            <img src="../../assets/images/cover-buku/<?= $row['cover_buku']; ?>" alt="Book Cover" class="card-image">
+            <div class="card" id="listBook">
+                <img src="../../assets/images/cover-buku/<?= $row['cover_buku']; ?>" alt="Book Cover" class="card-image">
                 <div class="card-content">
                     <h3 class="card-title"><?= $row['judul_buku']; ?></h3>
                     <p class="card-author">by <?= $row['penulis_buku']; ?></p>
                     <p class="card-publisher">Publisher: <?= $row['penerbit_buku']; ?></p>
                     <p class="card-year">Publication Year: <?= $row['tanggal_terbit']; ?></p>
-                    <a href="#" class="btn-read">Read More</a>
+                    <!-- <a href="../details/?= $row['id_buku']; ?>" class="btn-read">Read More</a> -->
+                    <a href="../details/index.php?id_buku=<?= $row['id_buku']; ?>" class="btn-read">Read More</a>
                 </div>
             </div>
             <?php
@@ -141,6 +136,7 @@
         echo "Tidak ada data buku.";
     }
     ?>
+
 
 
     <section class="book-list">

@@ -43,7 +43,7 @@
                 <a class="list" href="../home/index.php">Home</a>
                 <a class="list" href="#listBook">Category</a>
                 <a class="list" href="#listBook">List Book</a>
-                <a class="list" href="myBook.php">My Book</a>
+                <a class="list" href="../catalogBooks/">My Book</a>
                 <a class="list" href="anggota.php">Member</a>
             </div>
             <div class="user">
