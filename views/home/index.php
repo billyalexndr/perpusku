@@ -1,4 +1,4 @@
-<?php include 'head.php' ?>
+<?php include "../Templates/head.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +24,7 @@
                 </select>
                 <input class="box" type="text" name="cari"value="" placeholder="Ketik judul buku yang ingin dicari!!"><input class="cta" name="button" type="submit" value="Cari Buku">
             </form> -->
-            <form class="search" id="cari" name="cari" method="POST" action="">
+            <form class="search" id="cari" name="cari" method="POST" action="../searchBooks/index.php">
                 <select name="point">
                     <option value="judul">Judul</option>
                     <option value="pengarang">Pengarang</option>
@@ -37,48 +37,6 @@
             <img src="../../assets/images/bg-home.jpg" alt="bg-header">
         </div>
     </header>
-    <?php if(isset($_POST['search'])): ?>
-    <section class="book-list slide-up">
-		<div class="grid">
-			<h1>Hasil Pencarian</h1>
-			<div class="table">
-				<div class="row head">
-					<div class="list">No</div>
-					<div class="list">Judul</div>
-					<div class="list">Id Buku</div>
-					<div class="list">Pengarang</div>
-					<div class="list">Penerbit</div>
-				</div>
-				<?php
-				require "../../koneksi.php";
-				$buku=$_POST['cari'];
-				$berdasarkan = $_POST['point'];
-				$no=1;
-				if ($berdasarkan == 'penerbit') {
-					$sqli= "select *from buku where penerbit LIKE '%$buku%';";
-				}else if ($berdasarkan == 'pengarang') {
-					$sqli= "select *from buku where pengarang LIKE '%$buku%';";
-				}else if ($berdasarkan == 'judul') {
-					$sqli= "select *from buku where judul LIKE '%$buku%';";
-				}else if ($berdasarkan == '') {
-				echo "data salah";
-				}
-				$banyak= mysqli_query($conn,$sqli);
-				while($row=mysqli_fetch_array($banyak))
-				{
-				?>
-				<div class="row body">
-					<div class="list"><?php echo $no ;?></div>
-					<div class="list"><?php echo $row['judul'] ;?></div>
-					<div class="list"><?php echo $row['id_buku'] ;?></div>
-					<div class="list"><?php echo $row['pengarang'];?></div>
-					<div class="list"><?php echo $row['penerbit'];?></div>
-				</div>
-				<?php $no=$no+1; }?>
-			</div>
-		</div>
-	</section>
-    <?php endif; ?>
 
     <!DOCTYPE html>
 <html lang="en">
