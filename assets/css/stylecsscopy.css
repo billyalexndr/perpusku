@@ -17,6 +17,7 @@ body {
   letter-spacing: 0.5px;
   font-size: 14px;
   color: #2b2b2b;
+  display: flex;
 }
 
 @media (max-width: 640px) {
@@ -30,6 +31,7 @@ body {
             perspective: 100px;
   }
 }
+
 
 body, nav, header, section#login, section {
   width: 100%;
@@ -390,6 +392,11 @@ nav h1 a:hover {
 }
 
 nav .menu .list {
+  margin:0%;
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   margin-right: 3em;
   color: white;
 }
@@ -492,6 +499,7 @@ nav .user .drop a:hover {
 
 nav .user .cta {
   padding: 5px 15px;
+  margin: 10px;
   border-radius: 5px;
   background: transparent;
   color: #fff;
