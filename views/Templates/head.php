@@ -13,11 +13,11 @@
     <script src="https://kit.fontawesome.com/0aa1f9181b.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/stylenew.css">
 </head>
 <body>
     <div class="menu-mobile">
-        <a class="list" href="index.php">Home</a>
+        <a class="list" href="../home/index.php">Home</a>
         <a class="list" href="koleksi_buku.php">List Book</a>
         <a class="list" href="anggota.php">Member</a>
         <a class="list" href="admin.php">List Admin</a>
@@ -40,8 +40,10 @@
         <div class="grid">
             <h1><a href="index.php?page=1">perpuss</a></h1>
             <div class="menu">
-                <a class="list" href="index.php">Home</a>
-                <a class="list" href="koleksi_buku.php">List Book</a>
+                <a class="list" href="../home/index.php">Home</a>
+                <a class="list" href="#listBook">Category</a>
+                <a class="list" href="#listBook">List Book</a>
+                <a class="list" href="../catalogBooks/">My Book</a>
                 <a class="list" href="anggota.php">Member</a>
             </div>
             <div class="user">
