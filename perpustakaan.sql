@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2023 at 05:13 PM
+-- Generation Time: May 22, 2023 at 11:54 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -64,22 +64,23 @@ INSERT INTO `buku` (`id_buku`, `id_kategori`, `cover_buku`, `judul_buku`, `penul
 
 CREATE TABLE `kategori` (
   `id_kategori` varchar(10) NOT NULL,
-  `nama_kategori` varchar(20) NOT NULL
+  `nama_kategori` varchar(20) NOT NULL,
+  `icon_kategori` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `kategori`
 --
 
-INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
-('10', 'Sastra Fiksi'),
-('20', 'Filsafat'),
-('30', 'Komputer & Teknologi'),
-('40', 'Novel Fantasi'),
-('50', 'Sains Fiksi'),
-('60', 'Romance'),
-('70', 'Pendidikan'),
-('80', 'Self Help');
+INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `icon_kategori`) VALUES
+('10', 'Sastra Fiksi', 'sastrafiksi-icon.png'),
+('20', 'Filsafat', 'filsafat-icon.png'),
+('30', 'Komputer & Teknologi', 'komputer-icon.png'),
+('40', 'Novel Fantasi', 'fantasy-icon.png'),
+('50', 'Sains Fiksi', 'sainsfiksi-icon.png'),
+('60', 'Romance', 'romance-icon.png'),
+('70', 'Pendidikan', 'pendidikan-icon,png'),
+('80', 'Self Help', 'selfhelp-icon.png');
 
 -- --------------------------------------------------------
 
