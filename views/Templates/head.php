@@ -41,10 +41,10 @@
             <h1><a href="index.php?page=1">perpuss</a></h1>
             <div class="menu">
                 <a class="list" href="../home/index.php">Home</a>
-                <a class="list" href="#listBook">Category</a>
+                <a class="list" href="#dataKategori">Category</a>
                 <a class="list" href="#listBook">List Book</a>
                 <a class="list" href="../catalogBooks/">My Book</a>
-                <a class="list" href="anggota.php">Member</a>
+                <!-- <a class="list" href="anggota.php">Member</a> -->
             </div>
             <div class="user">
             <?php if(isset($_SESSION['login'])): ?>
