@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2023 at 11:54 AM
+-- Generation Time: May 23, 2023 at 04:59 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -169,6 +169,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `buku`
   MODIFY `id_buku` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `peminjaman`
+--
+ALTER TABLE `peminjaman`
+  MODIFY `id_peminjaman` int(2) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `riwayat_peminjaman`
