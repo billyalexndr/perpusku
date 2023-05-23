@@ -43,7 +43,7 @@
 								Login
 							</a>
 							<br>
-							<a href="./views/home/index.php" class="txt2">
+							<a href="../home/" class="txt2">
 								Kembali ke Home
 							</a>
 						</li>
