@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
 
     if ($simpan) {
         echo "<script>alert('Registrasi berhasil');
-		window.location.href = 'index.php';
+		window.location.href = 'login.php';
 		</script>";
     } else {
         echo "<script>alert('Registrasi gagal: " . mysqli_error($conn) . "');

@@ -52,5 +52,5 @@ if (isset($_GET['id_buku'])) {
 }
 
 // Tutup koneksi
-mysqli_close($conn);
+// mysqli_close($conn);
 ?>

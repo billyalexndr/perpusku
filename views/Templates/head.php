@@ -50,7 +50,7 @@
                 <?php if(isset($_SESSION['username'])): ?>
                     <span class="username"><?php echo $_SESSION['username']; ?></span> <i class="fas fa-sort-down"></i>
                     <div class="drop">
-                        <a href="admin.php">List Admin</a>
+                        <!-- <a href="admin.php">List Admin</a> -->
                         <a href="../login/logout.php">Log-Out</a>
                     </div>
                 <?php else: ?>
