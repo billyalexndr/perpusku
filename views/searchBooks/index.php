@@ -1,5 +1,5 @@
 <?php
-include "../Templates/head.php";
+include "../templates/head.php";
 require "../../koneksi.php";
 
 if(isset($_POST['cari'])) {

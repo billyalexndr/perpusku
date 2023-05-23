@@ -1,4 +1,4 @@
-<?php include "../Templates/head.php"; ?>
+<?php include "../templates/head.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/books.css">
+    <!-- <link rel="stylesheet" href="../../assets/css/books.css"> -->
     <title>Document</title>
 </head>
 
@@ -241,15 +241,6 @@
     </div>
 </section>
 
-    <script> $('nav .menu .list:first-child').addClass('active');
-        $(window).on("scroll", function () {
-            if ($(window).scrollTop()) {
-                $('nav').addClass('active');
-            } else {
-                $('nav').removeClass('active');
-            }
-        });
-    </script>
 </body>
 
 </html>

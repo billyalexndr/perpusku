@@ -47,16 +47,39 @@
                 <!-- <a class="list" href="anggota.php">Member</a> -->
             </div>
             <div class="user">
-            <?php if(isset($_SESSION['login'])): ?>
-                <span ><?php echo $_SESSION['user']; ?> <i class="fas fa-sort-down"></i></span>
-                <div class="drop">
-                    <a href="admin.php">List Admin</a>
-                    <a href="logout.php">Log-Out</a>
-                </div>
-            <?php else: ?>
-                    <a href="../login/login.php" class="cta">Login</a>
-                    <a href="../login/" class="cta">Sign Up</a>
-            <?php endif; ?>
+                <?php if(isset($_SESSION['username'])): ?>
+                    <span class="username"><?php echo $_SESSION['username']; ?></span> <i class="fas fa-sort-down"></i>
+                    <div class="drop">
+                        <a href="admin.php">List Admin</a>
+                        <a href="../login/logout.php">Log-Out</a>
+                    </div>
+                <?php else: ?>
+                        <a href="../login/login.php" class="cta">Login</a>
+                        <a href="../login/" class="cta">Sign Up</a>
+                <?php endif; ?>
             </div>
         </div>
     </nav>
+
+    <script> 
+        $('nav .menu .list:first-child').addClass('active');
+        $(window).on("scroll", function () {
+            if ($(window).scrollTop()) {
+                $('nav').addClass('active');
+            } else {
+                $('nav').removeClass('active');
+            }
+        });
+
+        var dropdownTimeout;
+
+        $('nav .user').hover(function() {
+            clearTimeout(dropdownTimeout);
+            $('nav .user .drop').css('display', '-webkit-box').css('display', '-ms-flexbox').css('display', 'flex');
+        }, function() {
+            dropdownTimeout = setTimeout(function() {
+                $('nav .user .drop').css('display', 'none');
+            }, 1000);
+        });
+    </script>
+</body>
