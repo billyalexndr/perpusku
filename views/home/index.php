@@ -1,4 +1,4 @@
-<?php include "../Templates/head.php"; ?>
+<?php include "../templates/head.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/books.css">
+    <!-- <link rel="stylesheet" href="../../assets/css/books.css"> -->
     <title>Document</title>
 </head>
 
@@ -54,7 +54,7 @@
     </head>
 
     <body>
-        <h1>Data Kategori</h1>
+        <h1 id="dataKategori">Data Kategori</h1>
         <ul>
             <?php
             require '../../koneksi.php';
@@ -114,6 +114,7 @@
 
 
     <div class="card-wrapper">
+        <h1>List Book</h1>
         <?php
         require '../../koneksi.php';
 
@@ -156,7 +157,7 @@
 
 
 
-    <section class="book-list">
+    <!-- <section class="book-list">
         <div class="grid">
             <h1>Buku Yang Terakhir Ditambahkan</h1>
             <div class="table">
@@ -199,39 +200,48 @@
             </div>
             <a href="form_tambah_buku.php" class="add view">Lihat Lebih Banyak</a>
         </div>
-    </section>
+    </section> -->
     <section class="info">
-        <div class="grid">
-            <div class="list">
-                <div class="content">
-                    <p class="count">
-                        1000
-                    </p>
-                    <p class="sub">Total Member</p>
-                </div>
-                <div class="bg"><img src="img/X10423640.jpg" alt="bg-header"></div>
+    <h1>Data Perpus</h1>
+    <div class="grid">
+        <div class="list">
+            <div class="content">
+                <?php
+                require '../../koneksi.php';
+
+                // Mengambil jumlah user dari database
+                $queryUser = "SELECT COUNT(*) AS totalUser FROM user";
+                $resultUser = mysqli_query($conn, $queryUser);
+                $rowUser = mysqli_fetch_assoc($resultUser);
+                $totalUser = $rowUser['totalUser'];
+                ?>
+                <p class="count">
+                    <?= $totalUser; ?>
+                </p>
+                <p class="sub">Total Member</p>
             </div>
-            <div class="list">
-                <div class="content">
-                    <p class="count">
-                        463
-                    </p>
-                    <p class="sub">Total Buku</p>
-                </div>
-                <div class="bg"><img src="img/0HOz23515.jpg" alt="bg-header"></div>
-            </div>
+            <div class="bg"><img src="img/X10423640.jpg" alt="bg-header"></div>
         </div>
-    </section>
-    <script> $('nav .menu .list:first-child').addClass('active');
-        $(window).on("scroll", function () {
-            if ($(window).scrollTop()) {
-                $('nav').addClass('active');
-            } else {
-                $('nav').removeClass('active');
-            }
-        });
-    </script>
+        <div class="list">
+            <div class="content">
+                <?php
+                // Mengambil jumlah buku dari database
+                $queryBuku = "SELECT COUNT(*) AS totalBuku FROM buku";
+                $resultBuku = mysqli_query($conn, $queryBuku);
+                $rowBuku = mysqli_fetch_assoc($resultBuku);
+                $totalBuku = $rowBuku['totalBuku'];
+                ?>
+                <p class="count">
+                    <?= $totalBuku; ?>
+                </p>
+                <p class="sub">Total Buku</p>
+            </div>
+            <div class="bg"><img src="img/0HOz23515.jpg" alt="bg-header"></div>
+        </div>
+    </div>
+</section>
+
 </body>
 
 </html>
-<!-- <?php include 'foot.php' ?>     -->
+<?php include '../Templates/foot.php' ?>    
