@@ -108,4 +108,5 @@ function renderBookDetails($book, $bookId, $isReturned, $isLogin=true) {
     </div>
 <?php
 }
+include '../templates/foot.php'
 ?>

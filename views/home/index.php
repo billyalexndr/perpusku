@@ -250,4 +250,4 @@
 </body>
 
 </html>
-<?php include '../Templates/foot.php' ?>    
+<?php include '../templates/foot.php' ?>    

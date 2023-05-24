@@ -74,3 +74,5 @@ if(isset($_POST['cari'])) {
         ?>
     </div>
 <body>
+
+<?php include '../templates/foot.php' ?>   
