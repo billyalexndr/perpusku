@@ -214,7 +214,9 @@
             box-shadow: 25px 0 50px 0 rgba(0, 0, 0, 0.25);
     }
 }
-
+h1{
+    display: flex;
+}
 nav {
     position: fixed;
     top: 0;
@@ -724,9 +726,11 @@ header .bg img, section#login .bg img {
             filter: grayscale(1) brightness(0.8);
 }
 
-div.float h1{
-    margin-left: 18px;
+div.float h1#dataKategori,h1#Listbook,h1#dataperpus{
+    margin-left: 25px;
+    
 }
+
 
 div.float ul{
     margin-left: 15;
@@ -1296,3 +1300,6 @@ footer .grid .bottom {
     opacity: .4;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+

@@ -11,8 +11,6 @@
 </head>
 
 <body>
-
-
     <header>
         <div class="grid">
             <p>Selamat datang di,</p>
@@ -75,7 +73,7 @@
                     $kategoriNama = $row["nama_kategori"];
                     
                     // Menampilkan data kategori dalam daftar HTML
-                    echo "<li><a href=><img src='../../assets/images/icon-kategori/$row[icon_kategori]'>" . $kategoriNama . "</li>";
+                    echo "<li><a href='?kategori=$row[id_kategori]'><img src='../../assets/images/icon-kategori/$row[icon_kategori]'>" . $kategoriNama . "</a></li>";
                     
                     
                 }
@@ -114,15 +112,20 @@
         </div>
     </section> -->
 
-    <h1>List Book</h1>
+    <h1 id="Listbook">List Book</h1>
 
     <div class="card-wrapper">
     
         <?php
         require '../../koneksi.php';
+        // Get the selected category ID from the query parameter
+        $selectedCategory = isset($_GET['kategori']) ? $_GET['kategori'] : '';
 
         // Query untuk mengambil data buku
         $query = "SELECT * FROM buku";
+        if (!empty($selectedCategory)) {
+            $query .= " WHERE id_kategori = '$selectedCategory'";
+        }
         $result = mysqli_query($conn, $query);
 
         // ...
@@ -205,7 +208,7 @@
         </div>
     </section> -->
     <section class="info">
-    <h1>Data Perpus</h1>
+    <h1 id="dataperpus">Data Perpus</h1>
     <div class="grid">
         <div class="list">
             <div class="content">

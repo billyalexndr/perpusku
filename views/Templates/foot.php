@@ -40,4 +40,5 @@
         });
     </script>
     </body>
+    <link href="../../assets/css/stylenew.css" rel="stylesheet" type="text/css";>
 </html>
