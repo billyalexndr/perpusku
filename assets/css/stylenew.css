@@ -44,7 +44,7 @@
     padding: 7.5px 1em;
     -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
             box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
-    color: #0059fb;
+    color: #32435f;
     -webkit-animation: ease .6s both;
     animation: ease .6s both;
 }
@@ -199,7 +199,7 @@
 @media (max-width: 640px) {
     .float {
     position: relative;
-    background: #f5f6f8;
+    background: #e1dcd9;
     z-index: -1;
     max-height: 100vh;
     overflow-y: auto;
@@ -229,7 +229,7 @@ nav {
 }
 
 nav span, nav h1, nav .list, nav i {
-    color: #fff;
+    color:#fff;
 }
 
 nav .grid {
@@ -269,7 +269,7 @@ nav .grid {
 nav h1 a {
     font-family: 'Playfair Display', serif;
     text-transform: capitalize;
-    color: #2467E0;
+    color: #32435f;
 }
 
 nav h1 a:hover {
@@ -283,7 +283,7 @@ nav .menu .list {
     /* background: #fff; */
     /* border: 1px solid rgba(0, 0, 0, 0.25); */
     margin-right: 3em;
-    color: white;
+    color: #fff;
 }
 
 nav .menu .list:hover, nav .menu .list.active {
@@ -391,9 +391,8 @@ nav .user .cta {
     padding: 5px 15px;
     margin: 7px;
     border-radius: 5px;
-    background: #fff;
-    color: rgba(0, 0, 0, 0.788);
-    border: 1px solid rgba(24, 21, 21, 0.25);
+    color: rgba(255, 251, 251, 0.788);
+    
 }
 
 nav .user .cta:hover {
@@ -435,8 +434,8 @@ nav.active .grid {
     color: #2b2b2b;
     }
     nav.active .cta {
-    color: #2b2b2b;
-    border: 1px solid rgba(43, 43, 43, 0.25);
+    color: #ffffff;
+    background-color: #32435f;
     }
     nav.active .cta:hover {
     color: #fff;
@@ -612,7 +611,7 @@ header .grid, section#login .grid {
         -ms-flex-align: start;
             align-items: flex-start;
     z-index: 2;
-    color: white;
+    color: #fff;
 }
 
 header .grid h1, section#login .grid h1 {
@@ -717,7 +716,7 @@ header .bg::before, section#login .bg::before {
     position: absolute;
     z-index: 1;
     background: -webkit-gradient(linear, left top, right top, from(rgba(0, 176, 255, 0.8)), to(rgba(0, 89, 251, 0.8)));
-    background: linear-gradient(90deg, rgba(0, 176, 255, 0.8) 0%, rgba(0, 89, 251, 0.8) 100%);
+    background: linear-gradient(90deg, rgba(99, 189, 231, 0.6) 0%, rgba(75, 100, 141, 0.8) 100%);
 }
 
 header .bg img, section#login .bg img {
@@ -725,24 +724,44 @@ header .bg img, section#login .bg img {
             filter: grayscale(1) brightness(0.8);
 }
 
+
+
+div.float ul{
+    margin-left: 15;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: #2b2b2b41 1px solid;
+}
+div.float li{
+    margin: 10px;
+    
+}
+div.float ul img{
+    margin-right: 10px;
+    width: 26px;
+}
 div.card-wrapper{
     display: flex;
     flex-wrap: wrap;
-    margin: 25px;
+    margin: 10px;
     justify-content: center;
     align-items: flex-start;
 }
+
+
 div#listBook.card{
+    margin: 9px;
     display: flex;
     flex-wrap: nowrap;
     align-items: flex-start;
     justify-content: center;
-    margin: 25px;
-    background-color: #0058fb9c;
-    height:min-content;
-    width: 40%;
-    border: #000 1px solid;
-    border-radius: 20px;
+    margin: px;
+    background-color: #e1dcd944;
+    min-height: 285px;
+    width: 30%;
+    border: #32435f36 1px solid;
+    border-radius: 10px;
 
 }
 div#listBook.card img{
@@ -750,13 +769,13 @@ div#listBook.card img{
     align-items: center;
     justify-content: center;
     width: 40%;
+    border-radius: 8px;
     
 }
 div#listBook .btn-read{
     padding: 5px;
     color: white;
-    background-color: #06f068;
-    border: #06f068 1px solid;
+    background-color: #32435f;
     border-radius: 5px;
     
 }
@@ -1192,7 +1211,7 @@ section.info .grid .list .bg:hover img {
 }
 
 footer {
-    background: #131a2c;
+    background: #32435f;
     padding-top: 4em;
     padding-bottom: 1em;
     color: white;

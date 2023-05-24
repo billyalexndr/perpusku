@@ -79,7 +79,7 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `icon_kategori`) VALUES
 ('40', 'Novel Fantasi', 'fantasy-icon.png'),
 ('50', 'Sains Fiksi', 'sainsfiksi-icon.png'),
 ('60', 'Romance', 'romance-icon.png'),
-('70', 'Pendidikan', 'pendidikan-icon,png'),
+('70', 'Pendidikan', 'pendidikan-icon.png'),
 ('80', 'Self Help', 'selfhelp-icon.png');
 
 -- --------------------------------------------------------
