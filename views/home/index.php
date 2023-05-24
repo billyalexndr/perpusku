@@ -73,9 +73,11 @@
                 // Mengambil data kategori satu per satu
                 while ($row = mysqli_fetch_assoc($result)) {
                     $kategoriNama = $row["nama_kategori"];
-
+                    
                     // Menampilkan data kategori dalam daftar HTML
-                    echo "<li>" . $kategoriNama . "</li>";
+                    echo "<li><a href=><img src='../../assets/images/icon-kategori/$row[icon_kategori]'>" . $kategoriNama . "</li>";
+                    
+                    
                 }
             } else {
                 echo "<li>Tidak ada data kategori.</li>";
@@ -112,9 +114,10 @@
         </div>
     </section> -->
 
+    <h1>List Book</h1>
 
     <div class="card-wrapper">
-        <h1>List Book</h1>
+    
         <?php
         require '../../koneksi.php';
 
