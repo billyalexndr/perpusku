@@ -75,7 +75,7 @@
                     $kategoriNama = $row["nama_kategori"];
                     
                     // Menampilkan data kategori dalam daftar HTML
-                    echo "<li><a href=><img src='../../assets/images/icon-kategori/$row[icon_kategori]'>" . $kategoriNama . "</li>";
+                    echo "<li><a href=><img src='../../assets/images/icon-kategori/$row[icon_kategori]'>" . $kategoriNama . "</a></li>";
                     
                     
                 }
