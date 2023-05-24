@@ -724,9 +724,7 @@ header .bg img, section#login .bg img {
             filter: grayscale(1) brightness(0.8);
 }
 
-div.float h1{
-    margin-left: 18px;
-}
+
 
 div.float ul{
     margin-left: 15;
