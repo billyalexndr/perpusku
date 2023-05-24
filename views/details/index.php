@@ -34,7 +34,10 @@ if (isset($_GET['id_buku'])) {
                 $result_riwayat = mysqli_query($conn, $query_riwayat);
 
                 if (mysqli_num_rows($result_riwayat) > 0) {
-                    // Buku sudah dikembalikan
+                    // Buku sudah dikembalikan, hapus data peminjaman
+                    $query_delete = "DELETE FROM peminjaman WHERE id_buku = '$id_buku' AND id_user = (SELECT id_user FROM user WHERE username = '$username')";
+                    mysqli_query($conn, $query_delete);
+                    
                     ?>
                     <img src="../../assets/images/cover-buku/<?=$row['cover_buku']; ?>" alt="" class="float-left thumbnail" width="250">
                     <div class="banner-detail">

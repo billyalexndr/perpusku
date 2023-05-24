@@ -20,7 +20,7 @@
     }
 
     // Query untuk mengambil daftar buku yang dipinjam
-    $query = "SELECT peminjaman.*, buku.cover_buku, buku.judul_buku, buku.penulis_buku, buku.penerbit_buku FROM peminjaman JOIN buku ON peminjaman.id_buku = buku.id_buku";
+    $query = "SELECT peminjaman.*, buku.cover_buku, buku.judul_buku, buku.penulis_buku, buku.penerbit_buku, buku.file_buku FROM peminjaman JOIN buku ON peminjaman.id_buku = buku.id_buku";
     $result = mysqli_query($conn, $query);
 
     // Periksa apakah ada buku yang dipinjam
@@ -43,10 +43,19 @@
             // Periksa apakah buku sudah dikembalikan
             if ($row['tanggal_kembali'] != null) {
               echo "<p class='book-info'>Tanggal Kembali: " . $row['tanggal_kembali'] . "</p>";
-            } else {
               echo "<p class='book-info'>Status: Belum Dikembalikan</p>";
+              ?>
+              <form method="GET" action="../details/pengembalian.php">
+                <input type="hidden" name="id_peminjaman" value="<?php echo $row['id_peminjaman']; ?>">
+                <input type="hidden" name="id_buku" value="<?php echo $row['id_buku']; ?>">
+                <button type="submit" class="btn-kembalikan" onclick="location.href='./index.php?id_buku=<?php echo $row['id_buku']; ?>'">Kembalikan</button>
+              </form>
+              <?php
+            } else {
+              echo "<p class='book-info'>Status: BLANK</p>";
             }
             ?>
+            <a href="../../assets/files/<?php echo $row['file_buku']; ?>" target="_blank" class="btn-read">Mulai Baca</a>
           </div>
         </div>
         <?php
@@ -56,7 +65,7 @@
     }
 
     // Query untuk mengambil riwayat peminjaman
-    $riwayatQuery = "SELECT riwayat_peminjaman.*, buku.cover_buku, buku.judul_buku, buku.penulis_buku, buku.penerbit_buku FROM riwayat_peminjaman JOIN buku ON riwayat_peminjaman.id_buku = buku.id_buku";
+    $riwayatQuery = "SELECT riwayat_peminjaman.*, buku.cover_buku, buku.judul_buku, buku.penulis_buku, buku.penerbit_buku, buku.file_buku FROM riwayat_peminjaman JOIN buku ON riwayat_peminjaman.id_buku = buku.id_buku";
     $riwayatResult = mysqli_query($conn, $riwayatQuery);
 
     // Periksa apakah ada riwayat peminjaman
@@ -70,12 +79,11 @@
           </div>
           <div class="book-details">
             <h3 class="book-title"><?php echo $riwayatRow['judul_buku']; ?></h3>
-            <p class="book-info">penulis_buku: <?php echo $riwayatRow['penulis_buku']; ?></p>
-            <p class="book-info">penerbit_buku: <?php echo $riwayatRow['penerbit_buku']; ?></p>
+            <p class="book-info">Penulis: <?php echo $riwayatRow['penulis_buku']; ?></p>
+            <p class="book-info">Penerbit: <?php echo $riwayatRow['penerbit_buku']; ?></p>
             <p class="book-info">ID Peminjaman: <?php echo $riwayatRow['id_riwayat']; ?></p>
             <p class="book-info">ID User: <?php echo $riwayatRow['id_user']; ?></p>
-            <!-- <p class="book-info">Tanggal Pinjam: <?php echo $riwayatRow['tanggal_pinjam']; ?></p>
-            <p class="book-info">Tanggal Kembali: <?php echo $riwayatRow['tanggal_kembali']; ?></p> -->
+            <!-- <a href="../../assets/files/<?php echo $riwayatRow['file_buku']; ?>" target="_blank" class="btn-read">Mulai Baca</a> -->
           </div>
         </div>
         <?php
@@ -87,6 +95,8 @@
     // Tutup koneksi database
     mysqli_close($conn);
     ?>
+
+
   </div>
 </body>
 </html>
