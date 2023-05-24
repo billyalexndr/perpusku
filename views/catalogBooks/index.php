@@ -9,8 +9,8 @@
   <title>My Book</title>
 </head>
 <body>
-  <h1>Riwayat peminjaman</h1>
-  <div class="book-list">
+  <h1 id='data'>Data MyBook</h1>
+  <div class="book-list-pinjam">
   <?php
     // Koneksi ke database
     require '../../koneksi.php';
@@ -20,82 +20,96 @@
       exit();
     }
 
-    // Query untuk mengambil daftar buku yang dipinjam
-    $query = "SELECT peminjaman.*, buku.cover_buku, buku.judul_buku, buku.penulis_buku, buku.penerbit_buku, buku.file_buku FROM peminjaman JOIN buku ON peminjaman.id_buku = buku.id_buku";
-    $result = mysqli_query($conn, $query);
-    ?><?php
-    // Periksa apakah ada buku yang dipinjam
-    if (mysqli_num_rows($result) > 0) {
-      echo "<h2>Data MyBook</h2>";
-      while ($row = mysqli_fetch_assoc($result)) {
-        ?>
-        <div class="book-card">
-          <div class="book-image">
-            <img src="../../assets/images/cover-buku/<?php echo $row['cover_buku']; ?>" alt="Cover Buku">
-          </div>
-          <div class="book-details">
-            <h3 class="book-title"><?php echo $row['judul_buku']; ?></h3>
-            <p class="book-info">Penulis: <?php echo $row['penulis_buku']; ?></p>
-            <p class="book-info">Penerbit: <?php echo $row['penerbit_buku']; ?></p>
-            <p class="book-info">ID Peminjaman: <?php echo $row['id_peminjaman']; ?></p>
-            <p class="book-info">ID User: <?php echo $row['id_user']; ?></p>
-            <p class="book-info">Tanggal Pinjam: <?php echo $row['tanggal_pinjam']; ?></p>
-            <?php
-            // Periksa apakah buku sudah dikembalikan
-            if ($row['tanggal_kembali'] != null) {
-              echo "<p class='book-info'>Tanggal Kembali: " . $row['tanggal_kembali'] . "</p>";
-              echo "<p class='book-info'>Status: Belum Dikembalikan</p>";
-              ?>
-              <form method="GET" action="../details/pengembalian.php">
-                <input type="hidden" name="id_peminjaman" value="<?php echo $row['id_peminjaman']; ?>">
-                <input type="hidden" name="id_buku" value="<?php echo $row['id_buku']; ?>">
-                <button type="submit" class="btn-kembalikan" onclick="location.href='./index.php?id_buku=<?php echo $row['id_buku']; ?>'">Kembalikan</button>
-              </form>
-              <?php
-            } else {
-              echo "<p class='book-info'>Status: BLANK</p>";
-            }
-            ?>
-            <a href="../../assets/files/<?php echo $row['file_buku']; ?>" target="_blank" class="btn-read">Mulai Baca</a>
-          </div>
-        </div>
-        <?php
-      }
-    } 
-    ?><?php
-    // Query untuk mengambil riwayat peminjaman
-    $riwayatQuery = "SELECT riwayat_peminjaman.*, buku.cover_buku, buku.judul_buku, buku.penulis_buku, buku.penerbit_buku, buku.file_buku FROM riwayat_peminjaman JOIN buku ON riwayat_peminjaman.id_buku = buku.id_buku";
-    $riwayatResult = mysqli_query($conn, $riwayatQuery);
+    // Periksa apakah user sudah login
+    // session_start();
+    if (isset($_SESSION['username'])) {
+      $username = $_SESSION['username'];
 
-    // Periksa apakah ada riwayat peminjaman
-    if (mysqli_num_rows($riwayatResult) > 0) {
-      while ($riwayatRow = mysqli_fetch_assoc($riwayatResult)) {
-        ?>
-        <div class="book-card">
-          <div class="book-image">
-            <img src="../../assets/images/cover-buku/<?php echo $riwayatRow['cover_buku']; ?>" alt="Cover Buku">
+      // Query untuk mengambil daftar buku yang dipinjam oleh user tertentu
+      $query = "SELECT peminjaman.*, buku.cover_buku, buku.judul_buku, buku.penulis_buku, buku.penerbit_buku, buku.file_buku 
+                FROM peminjaman 
+                JOIN buku ON peminjaman.id_buku = buku.id_buku 
+                WHERE peminjaman.id_user = (SELECT id_user FROM user WHERE username = '$username')";
+      $result = mysqli_query($conn, $query);
+
+      // Periksa apakah ada buku yang dipinjam
+      if (mysqli_num_rows($result) > 0) {
+        echo "<h2>Data MyBook</h2>";
+        while ($row = mysqli_fetch_assoc($result)) {
+          ?>
+          <div class="book-pinjam">
+            <div class="book-image">
+              <img src="../../assets/images/cover-buku/<?php echo $row['cover_buku']; ?>" alt="Cover Buku">
+            </div>
+            <div class="book-details">
+              <h3 class="book-title"><?php echo $row['judul_buku']; ?></h3>
+              <p class="book-info">Penulis: <?php echo $row['penulis_buku']; ?></p>
+              <p class="book-info">Penerbit: <?php echo $row['penerbit_buku']; ?></p>
+              <p class="book-info">ID Peminjaman: <?php echo $row['id_peminjaman']; ?></p>
+              <p class="book-info">ID User: <?php echo $row['id_user']; ?></p>
+              <p class="book-info">Tanggal Pinjam: <?php echo $row['tanggal_pinjam']; ?></p>
+              <?php
+              // Periksa apakah buku sudah dikembalikan
+              if ($row['tanggal_kembali'] != null) {
+                echo "<p class='book-info'>Tanggal Kembali: " . $row['tanggal_kembali'] . "</p>";
+                echo "<p class='book-info'>Status: Belum Dikembalikan</p>";
+                ?>
+                <form method="GET" action="../details/pengembalian.php">
+                  <input type="hidden" name="id_peminjaman" value="<?php echo $row['id_peminjaman']; ?>">
+                  <input type="hidden" name="id_buku" value="<?php echo $row['id_buku']; ?>">
+                  <button type="submit" class="btn-kembalikan">Kembalikan</button>
+                </form>
+                <?php
+              } else {
+                echo "<p class='book-info'>Status: BLANK</p>";
+              }
+              ?>
+              <a href="../../assets/files/<?php echo $row['file_buku']; ?>" target="_blank" class="btn-read">Mulai Baca</a>
+            </div>
           </div>
-          <div class="book-details">
-            <h3 class="book-title"><?php echo $riwayatRow['judul_buku']; ?></h3>
-            <p class="book-info">Penulis: <?php echo $riwayatRow['penulis_buku']; ?></p>
-            <p class="book-info">Penerbit: <?php echo $riwayatRow['penerbit_buku']; ?></p>
-            <p class="book-info">ID Peminjaman: <?php echo $riwayatRow['id_riwayat']; ?></p>
-            <p class="book-info">ID User: <?php echo $riwayatRow['id_user']; ?></p>
-            <!-- <a href="../../assets/files/<?php echo $riwayatRow['file_buku']; ?>" target="_blank" class="btn-read">Mulai Baca</a> -->
+          <?php
+        }
+      } else {
+        echo "Tidak ada buku yang dipinjam.";
+      }
+
+      // Query untuk mengambil riwayat peminjaman oleh user tertentu
+      $riwayatQuery = "SELECT riwayat_peminjaman.*, buku.cover_buku, buku.judul_buku, buku.penulis_buku, buku.penerbit_buku, buku.file_buku 
+                      FROM riwayat_peminjaman 
+                      JOIN buku ON riwayat_peminjaman.id_buku = buku.id_buku 
+                      WHERE riwayat_peminjaman.id_user = (SELECT id_user FROM user WHERE username = '$username')";
+      $riwayatResult = mysqli_query($conn, $riwayatQuery);
+
+      // Periksa apakah ada riwayat peminjaman
+      if (mysqli_num_rows($riwayatResult) > 0) {
+        echo "<h2>Riwayat Peminjaman</h2>";
+        while ($riwayatRow = mysqli_fetch_assoc($riwayatResult)) {
+          ?>
+          <div class="book-card">
+            <div class="book-image">
+              <img src="../../assets/images/cover-buku/<?php echo $riwayatRow['cover_buku']; ?>" alt="Cover Buku">
+            </div>
+            <div class="book-details">
+              <h3 class="book-title"><?php echo $riwayatRow['judul_buku']; ?></h3>
+              <p class="book-info">Penulis: <?php echo $riwayatRow['penulis_buku']; ?></p>
+              <p class="book-info">Penerbit: <?php echo $riwayatRow['penerbit_buku']; ?></p>
+              <p class="book-info">ID Peminjaman: <?php echo $riwayatRow['id_riwayat']; ?></p>
+              <p class="book-info">ID User: <?php echo $riwayatRow['id_user']; ?></p>
+              <!-- <a href="../../assets/files/<?php echo $riwayatRow['file_buku']; ?>" target="_blank" class="btn-read">Mulai Baca</a> -->
+            </div>
           </div>
-        </div>
-        <?php
+          <?php
+        }
+      } else {
+        echo "Tidak ada riwayat peminjaman.";
       }
     } else {
-      echo "Tidak ada riwayat peminjaman.";
+      echo "Anda belum login.";
     }
 
     // Tutup koneksi database
     mysqli_close($conn);
     ?>
-
-
   </div>
-  
 </body>
 </html>
