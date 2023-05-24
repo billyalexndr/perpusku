@@ -31,7 +31,6 @@
 					</div>
 
 					<div class="login-more pt-5">
-						
 							<span class="txt1">
 								Don’t have an account?
 							</span>
