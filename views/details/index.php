@@ -40,7 +40,7 @@ require '../../koneksi.php';
                         // Buku sudah dikembalikan, hapus data peminjaman
                         $query_delete = "DELETE FROM peminjaman WHERE id_buku = '$id_buku' AND id_user = (SELECT id_user FROM user WHERE username = '$username')";
                         mysqli_query($conn, $query_delete);
-                        
+
                         renderBookDetails($row, $id_buku, true);
                     } else {
                         renderBookDetails($row, $id_buku, false);
@@ -67,11 +67,14 @@ require '../../koneksi.php';
 <?php
 function renderBookDetails($book, $bookId, $isReturned, $isLogin=true) {
 ?>
+    <div class="header">
+        <h1>Detail Buku</h1>
+    </div>
     <div class="container">
         <img src="../../assets/images/cover-buku/<?=$book['cover_buku']; ?>" alt="" class="thumbnail" width="250">
         <div class="banner-detail">
             <div class="details">
-                <div class="header">
+                <div class="header-tittle">
                     <h1 class="judul"><?= $book['judul_buku']; ?></h1>
                     <p class="kategori"><?= $book['genre_buku']; ?> &nbsp;&nbsp;<img src="../../assets/images/icon-kategori/<?=$book['icon_kategori']; ?>" alt="" width="26px"></p>
                 </div>

@@ -75,7 +75,7 @@
                     $kategoriNama = $row["nama_kategori"];
                     
                     // Menampilkan data kategori dalam daftar HTML
-                    echo "<li><a href=><img src='../../assets/images/icon-kategori/$row[icon_kategori]'>" . $kategoriNama . "</a></li>";
+                    echo "<li><a href='?kategori=$row[id_kategori]'><img src='../../assets/images/icon-kategori/$row[icon_kategori]'>" . $kategoriNama . "</a></li>";
                     
                     
                 }
@@ -120,9 +120,14 @@
     
         <?php
         require '../../koneksi.php';
+        // Get the selected category ID from the query parameter
+        $selectedCategory = isset($_GET['kategori']) ? $_GET['kategori'] : '';
 
         // Query untuk mengambil data buku
         $query = "SELECT * FROM buku";
+        if (!empty($selectedCategory)) {
+            $query .= " WHERE id_kategori = '$selectedCategory'";
+        }
         $result = mysqli_query($conn, $query);
 
         // ...
