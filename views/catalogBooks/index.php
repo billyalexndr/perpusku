@@ -1,18 +1,19 @@
+<?php include "../templates/head.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../assets/css/books.css">
+  <link rel="stylesheet" href="../../assets/css/buku.css">
   <title>My Book</title>
 </head>
 <body>
+  <h1>Riwayat peminjaman</h1>
   <div class="book-list">
-    <?php
+  <?php
     // Koneksi ke database
     require '../../koneksi.php';
-
     // Periksa koneksi
     if (mysqli_connect_errno()) {
       echo "Koneksi database gagal: " . mysqli_connect_error();
@@ -22,7 +23,7 @@
     // Query untuk mengambil daftar buku yang dipinjam
     $query = "SELECT peminjaman.*, buku.cover_buku, buku.judul_buku, buku.penulis_buku, buku.penerbit_buku, buku.file_buku FROM peminjaman JOIN buku ON peminjaman.id_buku = buku.id_buku";
     $result = mysqli_query($conn, $query);
-
+    ?><?php
     // Periksa apakah ada buku yang dipinjam
     if (mysqli_num_rows($result) > 0) {
       echo "<h2>Data MyBook</h2>";
@@ -60,17 +61,14 @@
         </div>
         <?php
       }
-    } else {
-      echo "Tidak ada buku yang dipinjam.";
-    }
-
+    } 
+    ?><?php
     // Query untuk mengambil riwayat peminjaman
     $riwayatQuery = "SELECT riwayat_peminjaman.*, buku.cover_buku, buku.judul_buku, buku.penulis_buku, buku.penerbit_buku, buku.file_buku FROM riwayat_peminjaman JOIN buku ON riwayat_peminjaman.id_buku = buku.id_buku";
     $riwayatResult = mysqli_query($conn, $riwayatQuery);
 
     // Periksa apakah ada riwayat peminjaman
     if (mysqli_num_rows($riwayatResult) > 0) {
-      echo "<h2>Riwayat Peminjaman</h2>";
       while ($riwayatRow = mysqli_fetch_assoc($riwayatResult)) {
         ?>
         <div class="book-card">
@@ -98,5 +96,6 @@
 
 
   </div>
+  
 </body>
 </html>

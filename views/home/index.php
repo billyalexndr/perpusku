@@ -11,8 +11,6 @@
 </head>
 
 <body>
-
-
     <header>
         <div class="grid">
             <p>Selamat datang di,</p>
