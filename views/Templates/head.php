@@ -43,8 +43,9 @@
                 <a class="list" href="../home/index.php">Home</a>
                 <a class="list" href="#dataKategori">Category</a>
                 <a class="list" href="#listBook">List Book</a>
-                <a class="list" href="../catalogBooks/">My Book</a>
-                <!-- <a class="list" href="anggota.php">Member</a> -->
+                <?php if(isset($_SESSION['username'])): ?>
+                    <a class="list" href="../catalogBooks/">My Book</a>
+                <?php endif; ?>
             </div>
             <div class="user">
                 <?php if(isset($_SESSION['username'])): ?>
