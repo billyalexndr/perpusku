@@ -114,7 +114,7 @@
         </div>
     </section> -->
 
-    <h1>List Book</h1>
+    <h1 id="Listbook">List Book</h1>
 
     <div class="card-wrapper">
     
@@ -205,7 +205,7 @@
         </div>
     </section> -->
     <section class="info">
-    <h1>Data Perpus</h1>
+    <h1 id="dataperpus">Data Perpus</h1>
     <div class="grid">
         <div class="list">
             <div class="content">
