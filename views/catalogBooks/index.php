@@ -34,7 +34,6 @@
 
       // Periksa apakah ada buku yang dipinjam
       if (mysqli_num_rows($result) > 0) {
-        echo "<h2>Data MyBook</h2>";
         while ($row = mysqli_fetch_assoc($result)) {
           ?>
           <div class="book-pinjam">
@@ -72,7 +71,11 @@
       } else {
         echo "Tidak ada buku yang dipinjam.";
       }
-
+      ?>
+  </div>
+      <h1 id="riwayat">Riwayat peminjaman</h1>
+      <div class="book-list-riwayat">
+      <?php
       // Query untuk mengambil riwayat peminjaman oleh user tertentu
       $riwayatQuery = "SELECT riwayat_peminjaman.*, buku.cover_buku, buku.judul_buku, buku.penulis_buku, buku.penerbit_buku, buku.file_buku 
                       FROM riwayat_peminjaman 
@@ -82,7 +85,7 @@
 
       // Periksa apakah ada riwayat peminjaman
       if (mysqli_num_rows($riwayatResult) > 0) {
-        echo "<h2>Riwayat Peminjaman</h2>";
+        
         while ($riwayatRow = mysqli_fetch_assoc($riwayatResult)) {
           ?>
           <div class="book-card">
