@@ -747,6 +747,7 @@ div.float ul img{
     margin-right: 10px;
     width: 26px;
 }
+
 div.card-wrapper{
     display: flex;
     flex-wrap: wrap;
@@ -1262,7 +1263,7 @@ footer .grid .menu {
 
 footer .grid .menu .list {
     margin-bottom: 1em;
-    color: white;
+    color: rgb(0, 0, 0);
     opacity: .65;
     font-style: italic;
 }

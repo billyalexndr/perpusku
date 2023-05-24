@@ -1,14 +1,19 @@
 body{
+    margin: 25px;
     background-color: #fff;
 }
-div
+div.float {
+    margin: 25px;
+}
 div.book-list {
     display: flex;
-    margin: 25px;
+    margin-left: 25px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
-
+div.book-detail button{
+    background-color: green;
+}
 .book-card {
     justify-content: center;
     background-color: #e6e5e5;
