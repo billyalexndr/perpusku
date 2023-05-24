@@ -231,3 +231,7 @@ body {
 .txt2:hover {
 	color: #d0172b;
 }
+
+ul > li {
+	text-decoration: none;
+}
