@@ -38,8 +38,8 @@ require '../../koneksi.php';
 
                     if (mysqli_num_rows($result_riwayat) > 0) {
                         // Buku sudah dikembalikan, hapus data peminjaman
-                        $query_delete = "DELETE FROM peminjaman WHERE id_buku = '$id_buku' AND id_user = (SELECT id_user FROM user WHERE username = '$username')";
-                        mysqli_query($conn, $query_delete);
+                        // $query_delete = "DELETE FROM peminjaman WHERE id_buku = '$id_buku' AND id_user = (SELECT id_user FROM user WHERE username = '$username')";
+                        // mysqli_query($conn, $query_delete);
 
                         renderBookDetails($row, $id_buku, true);
                     } else {

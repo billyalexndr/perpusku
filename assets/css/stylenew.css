@@ -295,7 +295,6 @@ nav .menu .list:hover, nav .menu .list.active {
 nav .user {
     position: relative;
     display: flex;
-    margin-right: 10px;
     cursor: pointer;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -462,7 +461,7 @@ body {
     letter-spacing: 0.5px;
     font-size: 14px;
     color: #2b2b2b;
-    display: flex;
+    /* display: flex; */
 }
 
 @media (max-width: 640px) {
@@ -572,11 +571,6 @@ body, nav, header, section#login, section {
     }
 }
 
-
-
-
-
-
 header, section#login {
     position: relative;
     display: -webkit-box;
@@ -592,6 +586,24 @@ header, section#login {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+}
+
+header.search-page {
+    position: relative;
+    background-image: url("../images/bg-home.jpg");
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 2em;
+}
+
+header.search-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(83, 69, 232, 0.8) 0%, rgba(17, 37, 70, 0.9) 100%);
 }
 
 header .grid, section#login .grid {
@@ -614,6 +626,17 @@ header .grid, section#login .grid {
             align-items: flex-start;
     z-index: 2;
     color: #fff;
+}
+
+header.search-page .grid {
+    min-height: 100px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+header .grid h4 {
+    font-size: large;
+    color: rgb(213, 218, 255);
 }
 
 header .grid h1, section#login .grid h1 {
@@ -653,6 +676,10 @@ header .grid .search, section#login .grid .search {
         grid-template-columns: 1fr 8fr 2fr;
     grid-gap: 2em;
     margin-top: 4em;
+}
+
+header.search-page .grid .search {
+    margin-top: 0px;
 }
 
 @media (max-width: 540px) {
@@ -1302,5 +1329,8 @@ footer .grid .bottom {
 }
 /*# sourceMappingURL=style.css.map */
 
-
+/* Search Page */
+.header-search-page {
+    
+}
 

@@ -21,41 +21,49 @@ if(isset($_POST['cari'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../assets/css/stylenew.css">
 </head>
 <body>
+    <header class="search-page">
+        <div class="grid">
+            <h4>Hasil Pencarian dari: <b><i><?= $isi; ?></i></b></h4>
+            <form class="search" id="cari" name="cari" method="POST" action="">
+                <select name="point">
+                    <option value="judul">Judul</option>
+                    <option value="pengarang">Pengarang</option>
+                    <option value="penerbit">Penerbit</option>
+                </select>
+                <input required class="box" type="text" name="cari" value=""
+                    placeholder="Ketik judul buku yang ingin dicari!!"><input class="cta" name="search" type="submit"
+                    value="Cari Buku">
+            </form>
+        </div>
+    </header>
 
-    <div class="container">
-        <br><br>
-        <h4 class="mb-5">Hasil Pencarian dari: <b><i><?= $isi; ?></i></b></h4>
-
-        <form class="search" id="cari" name="cari" method="POST" action="">
-            <select name="point">
-                <option value="judul">Judul</option>
-                <option value="pengarang">Pengarang</option>
-                <option value="penerbit">Penerbit</option>
-            </select>
-            <input required class="box" type="text" name="cari"value="" placeholder="Ketik judul buku yang ingin dicari!!"><input class="cta" name="search" type="submit" value="Cari Buku">
-        </form>
-
+    <div class="card-wrapper">
+    
         <?php
         $hasil = mysqli_query($conn, $sqli);
-
+        
         if (mysqli_num_rows($hasil) > 0) {
             while ($row = mysqli_fetch_assoc($hasil)) {
                 ?>
-                <div class="card">
+                <div class="card" id="listBook">
                     <img src="../../assets/images/cover-buku/<?= $row['cover_buku']; ?>" alt="Book Cover" class="card-image">
                     <div class="card-content">
-                        <h3 class="card-title"><?= $row['judul_buku']; ?></h3>
-                        <p class="card-author">by <?= $row['penulis_buku']; ?></p>
-                        <p class="card-publisher">Publisher: <?= $row['penerbit_buku']; ?></p>
-                        <p class="card-year">Publication Year: <?= $row['tanggal_terbit']; ?></p>
-                        <a href="#" class="btn-read">Read More</a>
+                        <h3 class="card-title">
+                            <?= $row['judul_buku']; ?>
+                        </h3>
+                        <p class="card-author">by
+                            <?= $row['penulis_buku']; ?>
+                        </p>
+                        <p class="card-publisher">Publisher:
+                            <?= $row['penerbit_buku']; ?>
+                        </p>
+                        <p class="card-year">Publication Year:
+                            <?= $row['tanggal_terbit']; ?>
+                        </p>
+                        <a href="../details/index.php?id_buku=<?= $row['id_buku']; ?>" class="btn-read">Read More</a>
                     </div>
                 </div>
                 <?php

@@ -17,11 +17,10 @@
 </head>
 <body>
     <div class="menu-mobile">
-        <a class="list" href="../home/index.php">Home</a>
-        <a class="list" href="koleksi_buku.php">List Book</a>
-        <a class="list" href="anggota.php">Member</a>
-        <a class="list" href="admin.php">List Admin</a>
-        <a class="list" href="logout.php">Log-Out</a>
+        <<a class="list" href="../home/index.php">Home</a>
+        <a class="list" href="../home/index.php#dataKategori">Category</a>
+        <a class="list" href="../home/index.php#listBook">List Book</a>
+        <a class="list" href="../login/logout.php">Log-Out</a>
     </div>
     
     <div id="menu-toggle">
@@ -41,8 +40,8 @@
             <h1><a href="index.php?page=1">perpuss</a></h1>
             <div class="menu">
                 <a class="list" href="../home/index.php">Home</a>
-                <a class="list" href="#dataKategori">Category</a>
-                <a class="list" href="#listBook">List Book</a>
+                <a class="list" href="../home/index.php#dataKategori">Category</a>
+                <a class="list" href="../home/index.php#listBook">List Book</a>
                 <?php if(isset($_SESSION['username'])): ?>
                     <a class="list" href="../catalogBooks/">My Book</a>
                 <?php endif; ?>
