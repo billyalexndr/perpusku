@@ -34,8 +34,7 @@
 							REGISTER
 						</button>
 					</div>
-					<ul class="login-more p-t-30">
-						<li>
+					<div class="login-more p-t-30">
 							<span class="txt1">
 								Have an account?
 							</span>
@@ -46,8 +45,7 @@
 							<a href="../home/" class="txt2">
 								Kembali ke Home
 							</a>
-						</li>
-					</ul>
+					</div>
 				</form>
 			</div>
 		</div>

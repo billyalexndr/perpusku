@@ -37,7 +37,7 @@
         echo "<h2>Data MyBook</h2>";
         while ($row = mysqli_fetch_assoc($result)) {
           ?>
-          <div class="book-card">
+          <div class="book-pinjam">
             <div class="book-image">
               <img src="../../assets/images/cover-buku/<?php echo $row['cover_buku']; ?>" alt="Cover Buku">
             </div>
