@@ -5,16 +5,50 @@ body{
 div.float {
     margin: 25px;
 }
-div.book-list {
+h1#data, h1#riwayat{
+    margin-top: 50px;
+    padding-bottom: 10px;
+    border-bottom: #32435f4b 1px solid;
+}
+div.book-details{
     display: flex;
+    flex-direction: column;
+}
+div.book-list-pinjam {
+    display: flex;
+    max-width: 330px;
     margin-left: 25px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
-div.book-detail button{
-    background-color: green;
+button.btn-kembalikan{
+    margin-top : 7px;
+    padding: 2px;
+    min-width: 90px;
+    background-color: #32435f;
+    color:#fff ;
+    border-radius: 10px;
 }
-.book-card {
+a.btn-read{
+    margin-top: 10px;
+    padding: 2px 2px 2px 4px;
+    color: black;
+    background-color: rgba(8, 253, 81, 0.692);
+    max-width: 90px;
+    border: rgba(12, 12, 12, 0.315) 1px solid ;
+    border-radius: 10px;
+}
+.book-list-riwayat{
+    display: flex;
+    max-width: 330px;
+    margin-left: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.book-pinjam{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: center;
     background-color: #e6e5e5;
     padding: 20px;
@@ -23,9 +57,26 @@ div.book-detail button{
     border: 1px solid rgba(0, 0, 0, 0.205);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
-.book-image img {
-    max-height: 100px;
+.book-card{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: #e6e5e5;
+    padding: 20px;
+    min-width: 290px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.205);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.book-card img {
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.book-pinjam img{
+    max-height: 200px;
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 10px;

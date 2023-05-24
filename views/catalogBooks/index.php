@@ -9,8 +9,8 @@
   <title>My Book</title>
 </head>
 <body>
-  <h1>Riwayat peminjaman</h1>
-  <div class="book-list">
+  <h1 id='data'>Data MyBook</h1>
+  <div class="book-list-pinjam">
   <?php
     // Koneksi ke database
     require '../../koneksi.php';
@@ -26,10 +26,9 @@
     ?><?php
     // Periksa apakah ada buku yang dipinjam
     if (mysqli_num_rows($result) > 0) {
-      echo "<h2>Data MyBook</h2>";
       while ($row = mysqli_fetch_assoc($result)) {
         ?>
-        <div class="book-card">
+        <div class="book-pinjam">
           <div class="book-image">
             <img src="../../assets/images/cover-buku/<?php echo $row['cover_buku']; ?>" alt="Cover Buku">
           </div>
@@ -61,8 +60,14 @@
         </div>
         <?php
       }
-    } 
-    ?><?php
+    }
+  ?>
+  </div>
+  <h1 id='riwayat'>Riwayat peminjaman</h1>
+  <div class="book-list-riwayat">
+  
+  <?php 
+  
     // Query untuk mengambil riwayat peminjaman
     $riwayatQuery = "SELECT riwayat_peminjaman.*, buku.cover_buku, buku.judul_buku, buku.penulis_buku, buku.penerbit_buku, buku.file_buku FROM riwayat_peminjaman JOIN buku ON riwayat_peminjaman.id_buku = buku.id_buku";
     $riwayatResult = mysqli_query($conn, $riwayatQuery);
