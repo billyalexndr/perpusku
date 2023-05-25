@@ -5,9 +5,9 @@
                 <div class="menu">
                     <p>Site Map</p>
                     <a class="list" href="index.php">Home</a>
-                    <a class="list" href="koleksi_buku.php">Category</a>
-                    <a class="list" href="koleksi_buku.php">List Book</a>
-                    <a class="list" href="anggota.php">My Book</a>
+                    <a class="list" href="index.php#dataKategori">Category</a>
+                    <a class="list" href="index.php#listBook">List Book</a>
+                    <a class="list" href="../catalogBooks/">My Book</a>
                 </div>
                 <div class="info">
                     <p>Team</p>

@@ -226,7 +226,7 @@
                 </p>
                 <p class="sub">Total Member</p>
             </div>
-            <div class="bg"><img src="img/X10423640.jpg" alt="bg-header"></div>
+            <div class="bg"><img src="../../assets/images/X10423640.jpg" alt="bg-header"></div>
         </div>
         <div class="list">
             <div class="content">
@@ -242,7 +242,7 @@
                 </p>
                 <p class="sub">Total Buku</p>
             </div>
-            <div class="bg"><img src="img/0HOz23515.jpg" alt="bg-header"></div>
+            <div class="bg"><img src="../../assets/images/0HOz23515.jpg" alt="bg-header"></div>
         </div>
     </div>
 </section>
