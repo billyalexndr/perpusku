@@ -25,6 +25,10 @@
     if (isset($_SESSION['username'])) {
       $username = $_SESSION['username'];
 
+      // Menghapus peminjaman yang melewati batas waktu
+      $query_hapus = "DELETE FROM peminjaman WHERE tanggal_kembali < CURDATE()";
+      $result_hapus = mysqli_query($conn, $query_hapus);
+
       // Query untuk mengambil daftar buku yang dipinjam oleh user tertentu
       $query = "SELECT peminjaman.*, buku.cover_buku, buku.judul_buku, buku.penulis_buku, buku.penerbit_buku, buku.file_buku 
                 FROM peminjaman 
