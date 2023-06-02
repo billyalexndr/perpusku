@@ -67,7 +67,10 @@ if (isset($_FILES['cover_buku'])) {
                         $result = mysqli_query($conn, $query);
 
                         if ($result) {
-                            echo "Buku berhasil ditambahkan";
+                            echo "<script>alert('Buku berhasil ditambahkan.');
+                            window.location.href = 'tambahBuku.php';
+                            </script>";
+                            exit();
                         } else {
                             echo "Gagal menambahkan buku";
                         }

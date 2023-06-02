@@ -35,7 +35,7 @@
         </div>
     </div>
     <div class="float">
-    <nav>
+    <nav class="active">
         <div class="grid">
             <h1><a href="index.php?page=1">perpuss</a></h1>
             <div class="menu">
@@ -43,8 +43,13 @@
                 <a class="list" href="../home/index.php#dataKategori">Category</a>
                 <a class="list" href="../home/index.php#listBook">List Book</a>
                 <?php if(isset($_SESSION['username'])): ?>
-                    <a class="list" href="../catalogBooks/">My Book</a>
+                    <?php if($_SESSION['username'] == "admin" || $_SESSION['username'] == "Admin"): ?>
+                        <a class="list" href="../admin/">Admin</a>
+                    <?php else: ?>
+                        <a class="list" href="../catalogBooks/">My Book</a>
+                    <?php endif; ?>
                 <?php endif; ?>
+
             </div>
             <div class="user">
                 <?php if(isset($_SESSION['username'])): ?>
@@ -62,14 +67,14 @@
     </nav>
 
     <script> 
-        $('nav .menu .list:first-child').addClass('active');
-        $(window).on("scroll", function () {
-            if ($(window).scrollTop()) {
-                $('nav').addClass('active');
-            } else {
-                $('nav').removeClass('active');
-            }
-        });
+        // $('nav .menu .list:first-child').addClass('active');
+        // $(window).on("scroll", function () {
+        //     if ($(window).scrollTop()) {
+        //         $('nav').addClass('active');
+        //     } else {
+        //         $('nav').removeClass('active');
+        //     }
+        // });
 
         var dropdownTimeout;
 

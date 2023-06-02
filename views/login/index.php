@@ -40,7 +40,7 @@
 							Login
 						</a>
 						<br><br>
-						<a href="../home/" class="txt2">
+						<a href="../../../perpusku/views/home/" class="txt2">
 							Kembali ke Home
 						</a>
 					</div>

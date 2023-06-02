@@ -247,6 +247,19 @@
     </div>
 </section>
 
+    <script> 
+        $('nav').removeClass('active');
+		$('nav .menu .list:first-child').addClass('active');
+
+		$(window).on("scroll", function () {
+			if ($(window).scrollTop() === 0) {
+				$('nav').removeClass('active');
+			} else {
+				$('nav').addClass('active');
+			}
+		});
+
+    </script>
 </body>
 
 </html>

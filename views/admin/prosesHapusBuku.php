@@ -9,7 +9,10 @@ $query = "DELETE FROM buku WHERE id_buku = '$id_buku'";
 $result = mysqli_query($conn, $query);
 
 if ($result) {
-    echo "Buku berhasil dihapus";
+    echo "<script>alert('Buku berhasil dihapus.');
+        window.location.href = 'hapusBuku.php';
+        </script>";
+        exit();
 } else {
     echo "Gagal menghapus buku";
 }
