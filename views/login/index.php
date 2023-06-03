@@ -36,7 +36,7 @@
 						<span class="txt1">
 							Have an account?
 						</span>
-						<a href="./login.php" class="txt2">
+						<a href="../../../perpusku/views/login/login.php" class="txt2">
 							Login
 						</a>
 						<br><br>

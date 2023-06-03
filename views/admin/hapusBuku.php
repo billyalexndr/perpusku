@@ -1,11 +1,14 @@
+<?php include "../templates/head.php"; 
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="../../assets/css/admin-delBook.css">
+    <link rel="stylesheet" href="../../assets/css/admin-hapus.css">
     <title>Halaman Admin</title>
 </head>
 <body>
     <h1>Daftar Buku</h1>
+    <div class="buku-wrapper">
     <?php
     include '../../koneksi.php';
 // Query untuk mengambil data buku dari database
@@ -33,5 +36,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 // Menutup koneksi database
 mysqli_close($conn);
 ?>
+</div>
 </body>
 </html>
