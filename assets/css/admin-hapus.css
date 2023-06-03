@@ -7,10 +7,19 @@ h1 {
     margin-bottom: 20px;
 }
 
+.buku-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .book-card {
+    margin: 10px 10px 35px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 300px;
+    max-width: 300px;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
