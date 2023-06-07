@@ -23,14 +23,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 500px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
         .square {
             position: relative; /* Add position relative to the square element */
             width: 500px;
-            height: 500px;
+            height: 300px;
             background-image: url("../../assets/images/library.jpg");
             background-size: cover;
             background-position: center;
@@ -93,13 +93,43 @@
             position: relative; /* Add position relative to the link */
             z-index: 1; /* Add z-index to bring the text in front */
         }
+
+        .link-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .link-button {
+            width: 80%;
+            height: 80px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .link-button:hover {
+            background-color: #45a049;
+        }
     </style>
 
 </head>
 <body>
+    
     <div class="container">
         <a class="square add" href="tambahBuku.php">Add Book</a>
         <a class="square delete" href="hapusBuku.php">Delete Book</a>
+    </div>
+
+    <div class="link-container">
+        <a class="link-button" href="listUser.php">List peminjaman user</a>
     </div>
 
 </body>
