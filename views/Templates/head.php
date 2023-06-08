@@ -43,7 +43,7 @@
                     <?php if($_SESSION['username'] == "admin" || $_SESSION['username'] == "Admin"): ?>
                         <a class="list" href="../admin/dashboard.php">Dashboard</a>
                         <a class="list" href="../home/index.php#dataKategori">Book</a>
-                        <a class="list" href="../admin/">Member</a>
+                        <a class="list" href="../admin/listUser.php">Member</a>
                     <?php else: ?>
                         <a class="list" href="../home/index.php">Home</a>
                         <a class="list" href="../home/index.php#dataKategori">Category</a>
