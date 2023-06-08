@@ -1,93 +1,102 @@
 <?php
-include '../../koneksi.php';
-include '../templates/head.php';
+require '../../koneksi.php';
+
+// Periksa koneksi
+if (!$conn) {
+    die("Koneksi database gagal: " . mysqli_connect_error());
+}
+
+// Query untuk mengambil data user dari database
+$query = "SELECT * FROM user";
+$result = mysqli_query($conn, $query);
+
+// Fungsi untuk menampilkan detail pengguna
+function showDetails($id) {
+    // Tambahkan logika untuk menampilkan detail pengguna berdasarkan ID
+    echo "Detail pengguna dengan ID: " . $id;
+}
+
+// Fungsi untuk menghapus pengguna
+function deleteUser($id) {
+    // Tambahkan logika untuk menghapus pengguna berdasarkan ID
+    echo "Pengguna dengan ID: " . $id . " berhasil dihapus";
+}
 ?>
 
-<!DOCTYPE html>
-<html>
 <head>
+    <!-- <link rel="stylesheet" href="../../assets/css/admin.css"> -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .container {
-            margin: 100px auto 150px;
-            min-height: 35vh;
-            width: 90%;
-        }
-
         table {
-            border-collapse: collapse;
             width: 100%;
+            border-collapse: collapse;
         }
 
-        th, td {
-            padding: 12px 15px;
+        th,
+        td {
+            padding: 8px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
 
         th {
             background-color: #f2f2f2;
-            font-weight: bold;
-            text-transform: uppercase;
         }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
+        button {
+            padding: 6px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
         }
 
-        tr:hover {
-            background-color: #f5f5f5;
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button.details {
+            background-color: #2196F3;
+        }
+
+        button.details:hover {
+            background-color: #0b7dda;
+        }
+
+        button.delete {
+            background-color: #f44336;
+        }
+
+        button.delete:hover {
+            background-color: #da190b;
         }
     </style>
 </head>
-<body>
+<table>
+    <thead>
+        <tr>
+            <th>ID User</th>
+            <th>Nama</th>
+            <th>Username</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php while ($user = mysqli_fetch_assoc($result)) : ?>
+            <tr>
+                <td><?php echo $user['id_user']; ?></td>
+                <td><?php echo $user['nama']; ?></td>
+                <td><?php echo $user['username']; ?></td>
+                <td>
+                <button class="details" onclick="window.location.href='./detailUser.php?id=<?php echo $user['id_user']; ?>'">Details</button>
+                    <button class="delete">Delete</button>
+                </td>
+            </tr>
+        <?php endwhile; ?>
+
+    </tbody>
+</table>
 
 <?php
-// Mengeksekusi query untuk mengambil data
-$sql = "SELECT user.username AS user, buku.judul_buku AS buku, peminjaman.tanggal_pinjam, peminjaman.tanggal_kembali
-        FROM peminjaman
-        INNER JOIN user ON peminjaman.id_user = user.id_user
-        INNER JOIN buku ON peminjaman.id_buku = buku.id_buku";
-$result = $conn->query($sql);
+// Tutup koneksi database
+mysqli_close($conn);
 ?>
-<div class="container">
-    <?php
-    // Memeriksa apakah query berhasil dieksekusi
-    if ($result->num_rows > 0) {
-        // Menampilkan data ke layar
-        echo "<table>
-                <tr>
-                    <th>User</th>
-                    <th>Buku</th>
-                    <th>Tanggal Pinjam</th>
-                    <th>Tanggal Pengembalian</th>
-                </tr>";
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>
-                    <td>".$row['user']."</td>
-                    <td>".$row['buku']."</td>
-                    <td>".$row['tanggal_pinjam']."</td>
-                    <td>".$row['tanggal_kembali']."</td>
-                </tr>";
-        }
-        echo "</table>";
-    } else {
-        echo "Tidak ada data yang ditemukan.";
-    }
-    ?>
-</div>
-
-<?php
-// Menutup koneksi ke database
-$conn->close();
-?>
-
-</body>
-</html>
-
-<?php include '../templates/foot.php' ?>
