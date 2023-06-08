@@ -39,13 +39,15 @@
         <div class="grid">
             <h1><a href="index.php?page=1">perpuss</a></h1>
             <div class="menu">
-                <a class="list" href="../home/index.php">Home</a>
-                <a class="list" href="../home/index.php#dataKategori">Category</a>
-                <a class="list" href="../home/index.php#listBook">List Book</a>
                 <?php if(isset($_SESSION['username'])): ?>
                     <?php if($_SESSION['username'] == "admin" || $_SESSION['username'] == "Admin"): ?>
-                        <a class="list" href="../admin/">Admin</a>
+                        <a class="list" href="../admin/dashboard.php">Dashboard</a>
+                        <a class="list" href="../home/index.php#dataKategori">Book</a>
+                        <a class="list" href="../admin/">Member</a>
                     <?php else: ?>
+                        <a class="list" href="../home/index.php">Home</a>
+                        <a class="list" href="../home/index.php#dataKategori">Category</a>
+                        <a class="list" href="../home/index.php#listBook">List Book</a>
                         <a class="list" href="../catalogBooks/">My Book</a>
                     <?php endif; ?>
                 <?php endif; ?>
