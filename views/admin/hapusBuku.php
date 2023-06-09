@@ -1,6 +1,3 @@
-<?php
-include "../templates/head.php";
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +5,6 @@ include "../templates/head.php";
     <title>Halaman Admin</title>
 </head>
 <body>
-    <h1>Daftar Buku</h1>
     <div class="buku-wrapper">
     <?php
     include '../../koneksi.php';

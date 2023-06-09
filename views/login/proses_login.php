@@ -11,7 +11,11 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_num_rows($result) == 1) {
         $_SESSION['username'] = $username;
-        header("Location: ../home/index.php "); // Ganti dengan halaman dashboard setelah login berhasil
+        if($_SESSION['username'] == "admin" || $_SESSION['username'] == "Admin") {
+            header("Location: ../admin/dashboard.php ");
+        } else {
+            header("Location: ../home/index.php ");
+        }
         exit();
     } else {
         echo "<script>alert('Username atau password salah');

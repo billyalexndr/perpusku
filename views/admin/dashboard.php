@@ -282,7 +282,7 @@
                 <p>4 terbaru</p>
 
             </div>
-            <a href="">Lihat Selengkapnya >></a>
+            <a href="listUser.php">Lihat Selengkapnya >></a>
         </div>
         <?php
         // Retrieve the four latest users
@@ -318,7 +318,7 @@
                 <p>4 terbaru</p>
 
             </div>
-            <a href="">Lihat Selengkapnya >></a>
+            <a href="book.php">Lihat Selengkapnya >></a>
         </div>
 
     <?php
