@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="menu-mobile">
-        <<a class="list" href="../home/index.php">Home</a>
+        <a class="list" href="../home/index.php">Home</a>
         <a class="list" href="../home/index.php#dataKategori">Category</a>
         <a class="list" href="../home/index.php#listBook">List Book</a>
         <a class="list" href="../login/logout.php">Log-Out</a>

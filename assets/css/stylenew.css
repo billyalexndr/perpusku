@@ -1291,7 +1291,7 @@ footer .grid .menu {
 
 footer .grid .menu .list {
     margin-bottom: 1em;
-    color: rgb(0, 0, 0);
+    color: white;
     opacity: .65;
     font-style: italic;
 }
