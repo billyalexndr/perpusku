@@ -207,7 +207,7 @@
             <a href="form_tambah_buku.php" class="add view">Lihat Lebih Banyak</a>
         </div>
     </section> -->
-    <section class="info">
+    <!-- <section class="info">
     <h1 id="dataperpus">Data Perpus</h1>
     <div class="grid">
         <div class="list">
@@ -245,7 +245,7 @@
             <div class="bg"><img src="../../assets/images/0HOz23515.jpg" alt="bg-header"></div>
         </div>
     </div>
-</section>
+</section> -->
 
     <script> 
         $('nav').removeClass('active');
