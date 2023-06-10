@@ -30,7 +30,7 @@ if (!$conn) {
 
             // Tampilkan detail pengguna
             echo "<h2>Details User</h2>";
-            ?><div class="user"><?php
+            ?><div class="body"><?php
                 echo "<p><strong>ID User:</strong> " . $user['id_user'] . "</p>";
                 echo "<p><strong>Nama User:</strong> " . $user['nama'] . "</p>";
                 echo "<p><strong>Username:</strong> " . $user['username'] . "</p>";?>
