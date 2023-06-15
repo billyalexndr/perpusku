@@ -19,8 +19,8 @@ if (isset($_GET['id_buku'])) {
 
     if (mysqli_num_rows($result_buku) > 0) {
         // Buku tersedia
-             // Fetch the book data
-    $row = mysqli_fetch_assoc($result_buku);
+        // Fetch the book data
+        $row = mysqli_fetch_assoc($result_buku);
 
         // Query untuk memperoleh id_user berdasarkan username
         $query_user = "SELECT id_user FROM user WHERE username = '$username'";
@@ -33,8 +33,6 @@ if (isset($_GET['id_buku'])) {
             // Menghitung tanggal kembali (7 hari setelah tanggal pinjam)
             $tanggal_pinjam = date('Y-m-d');
             $tanggal_kembali = date('Y-m-d', strtotime('+7 days', strtotime($tanggal_pinjam)));
-
-           
             $query_insert = "INSERT INTO peminjaman (id_user, id_buku, tanggal_pinjam, tanggal_kembali) VALUES ('$id_user', '$id_buku', '$tanggal_pinjam', '$tanggal_kembali')";
             $result_insert = mysqli_query($conn, $query_insert);
 
@@ -44,10 +42,8 @@ if (isset($_GET['id_buku'])) {
             setTimeout(function() {
                 window.location.href = './index.php?id_buku=$id_buku';
             }, 1000); // Delay the redirection for 1 second (adjust as needed)
-        </script>";
-    exit();
-                // header("Location: ./index.php?id_buku=" . $row['id_buku']);
-                
+            </script>";
+            exit();
             } else {
                 echo "Terjadi kesalahan saat meminjam buku.";
             }

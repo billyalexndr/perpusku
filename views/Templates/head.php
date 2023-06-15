@@ -2,17 +2,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Perpuss</title>
+    <title>Perpusku</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="theme-color" content="#0082CC">
-    <!-- <link rel="shortcut icon" href="img/fav.ico" /> -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/0aa1f9181b.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="../../assets/css/stylenew.css">
 </head>
 <body>
@@ -57,7 +54,6 @@
                 <?php if(isset($_SESSION['username'])): ?>
                     <span class="username"><?php echo $_SESSION['username']; ?></span> <i class="fas fa-sort-down"></i>
                     <div class="drop">
-                        <!-- <a href="admin.php">List Admin</a> -->
                         <a href="../login/logout.php">Log-Out</a>
                     </div>
                 <?php else: ?>
@@ -68,16 +64,8 @@
         </div>
     </nav>
 
+    <!-- script untuk dropdown user -->
     <script> 
-        // $('nav .menu .list:first-child').addClass('active');
-        // $(window).on("scroll", function () {
-        //     if ($(window).scrollTop()) {
-        //         $('nav').addClass('active');
-        //     } else {
-        //         $('nav').removeClass('active');
-        //     }
-        // });
-
         var dropdownTimeout;
 
         $('nav .user').hover(function() {

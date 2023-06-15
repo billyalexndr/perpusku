@@ -50,7 +50,4 @@ if (isset($_GET['id_buku'])) {
 } else {
     echo "ID buku tidak diberikan.";
 }
-
-// Tutup koneksi
-// mysqli_close($conn);
 ?>

@@ -28,7 +28,6 @@
         echo '<p>Penerbit: ' . $penerbit_buku . '</p>';
         echo '<a href="editBuku.php?id=' . $id_buku . '" class="btn btn-edit">Edit Buku</a>';
         echo '<a href="prosesHapusBuku.php?id=' . $id_buku . '" class="btn btn-delete">Hapus Buku</a>';
-        // echo '<a href="../details/index.php?id=' . $id_buku . '" class="btn">More</a>';
         echo '</div>';
     }
 

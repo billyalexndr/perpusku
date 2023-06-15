@@ -18,8 +18,6 @@ if (isset($_GET['id_buku'])) {
 
         if (mysqli_num_rows($result_pinjam) > 0) {
             // User meminjam buku tersebut, lakukan proses pengembalian
-            // $query_kembali = "UPDATE peminjaman SET tanggal_kembali = NOW() WHERE id_buku = '$id_buku' AND id_user = (SELECT id_user FROM user WHERE username = '$username')";
-            // $result_kembali = mysqli_query($conn, $query_kembali);
 
             $query_delete = "DELETE FROM peminjaman WHERE id_buku = '$id_buku' AND id_user = (SELECT id_user FROM user WHERE username = '$username')";
             $result_kembali = mysqli_query($conn, $query_delete);
@@ -61,5 +59,4 @@ if (isset($_GET['id_buku'])) {
     exit();
 }
 
-// ...
 ?>

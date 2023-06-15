@@ -102,7 +102,6 @@
               <p class="book-info">Penerbit: <?php echo $riwayatRow['penerbit_buku']; ?></p>
               <p class="book-info">ID Peminjaman: <?php echo $riwayatRow['id_riwayat']; ?></p>
               <p class="book-info">ID User: <?php echo $riwayatRow['id_user']; ?></p>
-              <!-- <a href="../../assets/files/<?php echo $riwayatRow['file_buku']; ?>" target="_blank" class="btn-read">Mulai Baca</a> -->
             </div>
           </div>
           <?php

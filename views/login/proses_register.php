@@ -14,8 +14,6 @@ if (isset($_POST['submit'])) {
         exit();
     }
 
-    // $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
     $query = "INSERT INTO user (nama, username, password) VALUES ('$nama', '$username', '$password')";
     $simpan = mysqli_query($conn, $query);
 

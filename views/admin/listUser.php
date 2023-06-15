@@ -1,4 +1,5 @@
-<?php include "../templates/head.php"; 
+<?php
+include "../templates/head.php";
 require '../../koneksi.php';
 
 // Periksa koneksi
@@ -10,18 +11,22 @@ if (!$conn) {
 $query = "SELECT * FROM user";
 $result = mysqli_query($conn, $query);
 
-// Fungsi untuk menampilkan detail pengguna
-function showDetails($id) {
-    // Tambahkan logika untuk menampilkan detail pengguna berdasarkan ID
-    echo "Detail pengguna dengan ID: " . $id;
-}
+// Fungsi untuk menghapus User
+// function deleteUser($id)
+// {
+//     global $conn;
 
-// Fungsi untuk menghapus pengguna
-function deleteUser($id) {
-    // Tambahkan logika untuk menghapus pengguna berdasarkan ID
-    echo "Pengguna dengan ID: " . $id . " berhasil dihapus";
-}
-?>
+//     // Query untuk menghapus User berdasarkan ID
+//     $query = "DELETE FROM user WHERE id_user = '$id'";
+//     $result = mysqli_query($conn, $query);
+
+//     if ($result) {
+//         echo "User dengan ID: " . $id . " berhasil dihapus";
+//     } else {
+//         echo "Gagal menghapus User. Error: " . mysqli_error($conn);
+//     }
+// }
+// ?>
 
 <head>
     <!-- <link rel="stylesheet" href="../../assets/css/admin.css"> -->
@@ -30,17 +35,20 @@ function deleteUser($id) {
             width: 100%;
             border-collapse: collapse;
         }
-        .wrap h1{
+
+        .wrap h1 {
             margin-top: 60px;
             margin-left: 50px;
             margin-right: 50px;
         }
-        .table{
+
+        .table {
             margin-left: 50px;
             margin-right: 50px;
-            border-radius: 8px ;
+            border-radius: 8px;
             border: 1px #dedad1 solid;
         }
+
         th,
         td {
             margin-top: 25px;
@@ -90,32 +98,42 @@ function deleteUser($id) {
     <h1>Daftar User</h1>
     <div class="table">
         <table>
-        <thead>
-            <tr>
-                <th>ID User</th>
-                <th>Nama</th>
-                <th>Username</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-    </div>
-        <tbody>
-            <?php while ($user = mysqli_fetch_assoc($result)) : ?>
+            <thead>
                 <tr>
-                    <td><?php echo $user['id_user']; ?></td>
-                    <td><?php echo $user['nama']; ?></td>
-                    <td><?php echo $user['username']; ?></td>
-                    <td>
-                    <button class="details" onclick="window.location.href='./detailUser.php?id=<?php echo $user['id_user']; ?>'">Details</button>
-                        <button class="delete">Delete</button>
-                    </td>
+                    <th>ID User</th>
+                    <th>Nama</th>
+                    <th>Username</th>
+                    <th>Action</th>
                 </tr>
-            <?php endwhile; ?>
-        </tbody>
+            </thead>
+    </div>
+    <tbody>
+        <?php while ($user = mysqli_fetch_assoc($result)) : ?>
+            <tr>
+                <td><?php echo $user['id_user']; ?></td>
+                <td><?php echo $user['nama']; ?></td>
+                <td><?php echo $user['username']; ?></td>
+                <td>
+                    <button class="details" onclick="window.location.href='./detailUser.php?id=<?php echo $user['id_user']; ?>'">Details</button>
+                    <button class="delete" onclick="deleteUser(<?php echo $user['id_user']; ?>)">Delete</button>
+                </td>
+            </tr>
+        <?php endwhile; ?>
+    </tbody>
     </table>
 </div>
+
+<script>
+    function deleteUser(id) {
+        if (confirm("Apakah Anda yakin ingin menghapus User dengan ID " + id + "?")) {
+            window.location.href = "./deleteUser.php?id=" + id;
+        }
+    }
+</script>
+
 <?php
 // Tutup koneksi database
 mysqli_close($conn);
 ?>
+
 <?php include "../templates/foot.php"; ?>
